@@ -1,4 +1,4 @@
-# Install script for directory: /home/albert/Documents/ray/src
+# Install script for directory: /home/albert/Documents/GitHub/Graphics-raytracer/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

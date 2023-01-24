@@ -1376,63 +1376,41 @@ detail/setup.hpp
 detail/func_vector_relational.inl
 ../third-party/glm/glm/detail/func_vector_relational.inl
 
-/home/albert/Documents/ray/src/fileio/images.h
-vector
--
-stdint.h
--
-
-/home/albert/Documents/ray/src/scene/bbox.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
 glm/vec3.hpp
 -
 
-/home/albert/Documents/ray/src/scene/camera.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
 ray.h
-/home/albert/Documents/ray/src/scene/ray.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
 glm/vec3.hpp
 -
 glm/mat3x3.hpp
 -
 
-/home/albert/Documents/ray/src/scene/light.cpp
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.cpp
 cmath
 -
 iostream
 -
 light.h
-/home/albert/Documents/ray/src/scene/light.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.h
 glm/glm.hpp
 -
 glm/gtx/io.hpp
 -
 
-/home/albert/Documents/ray/src/scene/light.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.h
 algorithm
 -
 scene.h
-/home/albert/Documents/ray/src/scene/scene.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
 ../ui/TraceUI.h
-/home/albert/Documents/ray/src/ui/TraceUI.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 FL/gl.h
 -
 
-/home/albert/Documents/ray/src/scene/material.cpp
-material.h
-/home/albert/Documents/ray/src/scene/material.h
-../ui/TraceUI.h
-/home/albert/Documents/ray/src/ui/TraceUI.h
-light.h
-/home/albert/Documents/ray/src/scene/light.h
-ray.h
-/home/albert/Documents/ray/src/scene/ray.h
-glm/gtx/io.hpp
--
-iostream
--
-../fileio/images.h
-/home/albert/Documents/ray/src/fileio/images.h
-
-/home/albert/Documents/ray/src/scene/material.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
 glm/vec2.hpp
 -
 glm/vec3.hpp
@@ -1446,7 +1424,7 @@ vector
 stdint.h
 -
 
-/home/albert/Documents/ray/src/scene/ray.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
 glm/vec2.hpp
 -
 glm/vec3.hpp
@@ -1454,9 +1432,9 @@ glm/vec3.hpp
 memory
 -
 material.h
-/home/albert/Documents/ray/src/scene/material.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
 
-/home/albert/Documents/ray/src/scene/scene.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
 algorithm
 -
 map
@@ -1470,13 +1448,13 @@ vector
 mutex
 -
 bbox.h
-/home/albert/Documents/ray/src/scene/bbox.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
 camera.h
-/home/albert/Documents/ray/src/scene/camera.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
 material.h
-/home/albert/Documents/ray/src/scene/material.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
 ray.h
-/home/albert/Documents/ray/src/scene/ray.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
 glm/geometric.hpp
 -
 glm/mat3x3.hpp
@@ -1490,7 +1468,7 @@ glm/vec3.hpp
 glm/vec4.hpp
 -
 
-/home/albert/Documents/ray/src/ui/TraceUI.h
+/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 string
 -
 memory

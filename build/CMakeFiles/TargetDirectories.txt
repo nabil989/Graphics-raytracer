@@ -1,5 +1,5 @@
-/home/albert/Documents/ray/build/CMakeFiles/rebuild_cache.dir
-/home/albert/Documents/ray/build/CMakeFiles/edit_cache.dir
-/home/albert/Documents/ray/build/src/CMakeFiles/rebuild_cache.dir
-/home/albert/Documents/ray/build/src/CMakeFiles/edit_cache.dir
-/home/albert/Documents/ray/build/src/CMakeFiles/ray.dir
+/home/albert/Documents/GitHub/Graphics-raytracer/build/CMakeFiles/rebuild_cache.dir
+/home/albert/Documents/GitHub/Graphics-raytracer/build/CMakeFiles/edit_cache.dir
+/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/rebuild_cache.dir
+/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/edit_cache.dir
+/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir

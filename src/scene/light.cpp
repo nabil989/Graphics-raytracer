@@ -32,6 +32,7 @@ glm::dvec3 DirectionalLight::getDirection(const glm::dvec3& P) const
 	return -orientation;
 }
 
+
 double PointLight::distanceAttenuation(const glm::dvec3& P) const
 {
 
@@ -41,12 +42,14 @@ double PointLight::distanceAttenuation(const glm::dvec3& P) const
 	// of the light based on the distance between the source and the 
 	// point P.  For now, we assume no attenuation and just return 1.0
 
-	double a = position[0];
-	double b = position[1];
-	double c = position[2];
-
 	//return min( 1, 1/( a + b d + c d^2 ) )
-	return 1.0;
+	cout << "Point Light da" << "\n";
+	double d = glm::distance(P, position);
+	cout << "distance " << d << "\n"; 
+	//cout << constantTerm << " " <<  linearTerm << " " << quadraticTerm << "\n";
+	double val = constantTerm + linearTerm * d + quadraticTerm * d * d;
+	cout << val << "\n";
+	return std::min(1.0,1/val);
 }
 
 glm::dvec3 PointLight::getColor() const
@@ -64,6 +67,8 @@ glm::dvec3 PointLight::shadowAttenuation(const ray& r, const glm::dvec3& p) cons
 {
 	// YOUR CODE HERE:
 	// You should implement shadow-handling code here.
+	glm::dvec3 d = getDirection(p);
+
 	return glm::dvec3(1,1,1);
 }
 

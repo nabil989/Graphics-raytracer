@@ -200,28 +200,28 @@ src/CMakeFiles/ray.dir/RayTracer.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/RayTracer.cpp
- /home/albert/Documents/ray/src/RayTracer.h
- /home/albert/Documents/ray/src/SceneObjects/Box.h
- /home/albert/Documents/ray/src/SceneObjects/Cone.h
- /home/albert/Documents/ray/src/SceneObjects/Cylinder.h
- /home/albert/Documents/ray/src/SceneObjects/Sphere.h
- /home/albert/Documents/ray/src/SceneObjects/Square.h
- /home/albert/Documents/ray/src/SceneObjects/trimesh.h
- /home/albert/Documents/ray/src/fileio/buffer.h
- /home/albert/Documents/ray/src/parser/Parser.h
- /home/albert/Documents/ray/src/parser/ParserException.h
- /home/albert/Documents/ray/src/parser/Token.h
- /home/albert/Documents/ray/src/parser/Tokenizer.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/cubeMap.h
- /home/albert/Documents/ray/src/scene/kdTree.h
- /home/albert/Documents/ray/src/scene/light.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/RayTracer.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/RayTracer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Box.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cone.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cylinder.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Sphere.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Square.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/trimesh.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/buffer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Parser.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/ParserException.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Token.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Tokenizer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/kdTree.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -372,13 +372,13 @@ src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/SceneObjects/Box.cpp
- /home/albert/Documents/ray/src/SceneObjects/Box.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Box.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Box.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
 src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -529,13 +529,13 @@ src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/SceneObjects/Cone.cpp
- /home/albert/Documents/ray/src/SceneObjects/Cone.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cone.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cone.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
 src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -686,13 +686,13 @@ src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/SceneObjects/Cylinder.cpp
- /home/albert/Documents/ray/src/SceneObjects/Cylinder.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cylinder.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cylinder.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
 src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -892,13 +892,13 @@ src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/SceneObjects/Sphere.cpp
- /home/albert/Documents/ray/src/SceneObjects/Sphere.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Sphere.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Sphere.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
 src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -1049,13 +1049,13 @@ src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/SceneObjects/Square.cpp
- /home/albert/Documents/ray/src/SceneObjects/Square.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Square.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Square.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
 src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -1217,29 +1217,29 @@ src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/SceneObjects/trimesh.cpp
- /home/albert/Documents/ray/src/SceneObjects/trimesh.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/kdTree.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/trimesh.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/trimesh.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/kdTree.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/fileio/bitmap.cpp.o
- /home/albert/Documents/ray/src/fileio/bitmap.cpp
- /home/albert/Documents/ray/src/fileio/bitmap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/bitmap.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/bitmap.h
 src/CMakeFiles/ray.dir/fileio/buffer.cpp.o
- /home/albert/Documents/ray/src/fileio/buffer.cpp
- /home/albert/Documents/ray/src/fileio/buffer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/buffer.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/buffer.h
 src/CMakeFiles/ray.dir/fileio/images.cc.o
- /home/albert/Documents/ray/src/fileio/bitmap.h
- /home/albert/Documents/ray/src/fileio/images.cc
- /home/albert/Documents/ray/src/fileio/images.h
- /home/albert/Documents/ray/src/fileio/pngimage.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/bitmap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/images.cc
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/images.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/pngimage.h
 src/CMakeFiles/ray.dir/fileio/pngimage.cpp.o
- /home/albert/Documents/ray/src/fileio/pngimage.cpp
- /home/albert/Documents/ray/src/fileio/pngimage.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/pngimage.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/pngimage.h
 src/CMakeFiles/ray.dir/main.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -1390,18 +1390,18 @@ src/CMakeFiles/ray.dir/main.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/RayTracer.h
- /home/albert/Documents/ray/src/main.cpp
- /home/albert/Documents/ray/src/scene/cubeMap.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/ui/CommandLineUI.h
- /home/albert/Documents/ray/src/ui/CubeMapChooser.h
- /home/albert/Documents/ray/src/ui/GraphicalUI.h
- /home/albert/Documents/ray/src/ui/TraceGLWindow.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
- /home/albert/Documents/ray/src/ui/debuggingView.h
- /home/albert/Documents/ray/src/ui/debuggingWindow.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/RayTracer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/main.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/CommandLineUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/CubeMapChooser.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/GraphicalUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceGLWindow.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingView.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingWindow.h
 src/CMakeFiles/ray.dir/parser/Parser.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -1565,42 +1565,42 @@ src/CMakeFiles/ray.dir/parser/Parser.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/SceneObjects/Box.h
- /home/albert/Documents/ray/src/SceneObjects/Cone.h
- /home/albert/Documents/ray/src/SceneObjects/Cylinder.h
- /home/albert/Documents/ray/src/SceneObjects/Sphere.h
- /home/albert/Documents/ray/src/SceneObjects/Square.h
- /home/albert/Documents/ray/src/SceneObjects/trimesh.h
- /home/albert/Documents/ray/src/fileio/buffer.h
- /home/albert/Documents/ray/src/parser/Parser.cpp
- /home/albert/Documents/ray/src/parser/Parser.h
- /home/albert/Documents/ray/src/parser/ParserException.h
- /home/albert/Documents/ray/src/parser/Token.h
- /home/albert/Documents/ray/src/parser/Tokenizer.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/kdTree.h
- /home/albert/Documents/ray/src/scene/light.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Box.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cone.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cylinder.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Sphere.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Square.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/trimesh.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/buffer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Parser.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Parser.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/ParserException.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Token.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Tokenizer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/kdTree.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/parser/ParserException.cpp.o
- /home/albert/Documents/ray/src/fileio/buffer.h
- /home/albert/Documents/ray/src/parser/ParserException.cpp
- /home/albert/Documents/ray/src/parser/ParserException.h
- /home/albert/Documents/ray/src/parser/Token.h
- /home/albert/Documents/ray/src/parser/Tokenizer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/buffer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/ParserException.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/ParserException.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Token.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Tokenizer.h
 src/CMakeFiles/ray.dir/parser/Token.cpp.o
- /home/albert/Documents/ray/src/parser/ParserException.h
- /home/albert/Documents/ray/src/parser/Token.cpp
- /home/albert/Documents/ray/src/parser/Token.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/ParserException.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Token.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Token.h
 src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o
- /home/albert/Documents/ray/src/fileio/buffer.h
- /home/albert/Documents/ray/src/parser/ParserException.h
- /home/albert/Documents/ray/src/parser/Token.h
- /home/albert/Documents/ray/src/parser/Tokenizer.cpp
- /home/albert/Documents/ray/src/parser/Tokenizer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/buffer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/ParserException.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Token.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Tokenizer.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Tokenizer.h
 src/CMakeFiles/ray.dir/scene/bbox.cc.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -1751,10 +1751,10 @@ src/CMakeFiles/ray.dir/scene/bbox.cc.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/scene/bbox.cc
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.cc
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
 src/CMakeFiles/ray.dir/scene/camera.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -1905,11 +1905,11 @@ src/CMakeFiles/ray.dir/scene/camera.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/scene/camera.cpp
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -2060,11 +2060,11 @@ src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/scene/cubeMap.cpp
- /home/albert/Documents/ray/src/scene/cubeMap.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/scene/light.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -2264,14 +2264,14 @@ src/CMakeFiles/ray.dir/scene/light.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/light.cpp
- /home/albert/Documents/ray/src/scene/light.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/scene/material.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -2471,15 +2471,15 @@ src/CMakeFiles/ray.dir/scene/material.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/fileio/images.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/light.h
- /home/albert/Documents/ray/src/scene/material.cpp
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/images.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/scene/ray.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -2630,13 +2630,13 @@ src/CMakeFiles/ray.dir/scene/ray.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.cpp
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/scene/scene.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -2838,15 +2838,15 @@ src/CMakeFiles/ray.dir/scene/scene.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/kdTree.h
- /home/albert/Documents/ray/src/scene/light.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.cpp
- /home/albert/Documents/ray/src/scene/scene.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/kdTree.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -2997,14 +2997,14 @@ src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/RayTracer.h
- /home/albert/Documents/ray/src/fileio/images.h
- /home/albert/Documents/ray/src/scene/cubeMap.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/ui/CommandLineUI.cpp
- /home/albert/Documents/ray/src/ui/CommandLineUI.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/RayTracer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/images.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/CommandLineUI.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/CommandLineUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -3155,17 +3155,17 @@ src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/RayTracer.h
- /home/albert/Documents/ray/src/scene/cubeMap.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/ui/CubeMapChooser.cxx
- /home/albert/Documents/ray/src/ui/CubeMapChooser.h
- /home/albert/Documents/ray/src/ui/GraphicalUI.h
- /home/albert/Documents/ray/src/ui/TraceGLWindow.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
- /home/albert/Documents/ray/src/ui/debuggingView.h
- /home/albert/Documents/ray/src/ui/debuggingWindow.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/RayTracer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/CubeMapChooser.cxx
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/CubeMapChooser.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/GraphicalUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceGLWindow.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingView.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingWindow.h
 src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -3316,17 +3316,17 @@ src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/RayTracer.h
- /home/albert/Documents/ray/src/scene/cubeMap.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/ui/CubeMapChooser.h
- /home/albert/Documents/ray/src/ui/GraphicalUI.cpp
- /home/albert/Documents/ray/src/ui/GraphicalUI.h
- /home/albert/Documents/ray/src/ui/TraceGLWindow.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
- /home/albert/Documents/ray/src/ui/debuggingView.h
- /home/albert/Documents/ray/src/ui/debuggingWindow.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/RayTracer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/CubeMapChooser.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/GraphicalUI.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/GraphicalUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceGLWindow.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingView.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingWindow.h
 src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -3490,8 +3490,8 @@ src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/ui/ModelerCamera.cpp
- /home/albert/Documents/ray/src/ui/ModelerCamera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/ModelerCamera.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/ModelerCamera.h
 src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -3642,18 +3642,18 @@ src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/RayTracer.h
- /home/albert/Documents/ray/src/fileio/bitmap.h
- /home/albert/Documents/ray/src/scene/cubeMap.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/ui/CubeMapChooser.h
- /home/albert/Documents/ray/src/ui/GraphicalUI.h
- /home/albert/Documents/ray/src/ui/TraceGLWindow.cpp
- /home/albert/Documents/ray/src/ui/TraceGLWindow.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
- /home/albert/Documents/ray/src/ui/debuggingView.h
- /home/albert/Documents/ray/src/ui/debuggingWindow.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/RayTracer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/bitmap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/CubeMapChooser.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/GraphicalUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceGLWindow.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceGLWindow.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingView.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingWindow.h
 src/CMakeFiles/ray.dir/ui/TraceUI.cc.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -3804,12 +3804,12 @@ src/CMakeFiles/ray.dir/ui/TraceUI.cc.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/scene/cubeMap.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/ui/TraceUI.cc
- /home/albert/Documents/ray/src/ui/TraceUI.h
- /home/albert/Documents/ray/src/ui/json.hpp
- /home/albert/Documents/ray/src/win32/dirent.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.cc
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/json.hpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/win32/dirent.h
 src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -3960,22 +3960,22 @@ src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/RayTracer.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/cubeMap.h
- /home/albert/Documents/ray/src/scene/light.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
- /home/albert/Documents/ray/src/ui/ModelerCamera.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
- /home/albert/Documents/ray/src/ui/debuggingView.cpp
- /home/albert/Documents/ray/src/ui/debuggingView.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/RayTracer.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/ModelerCamera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingView.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingView.h
 src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o
- /home/albert/Documents/ray/src/ui/debuggingView.h
- /home/albert/Documents/ray/src/ui/debuggingWindow.cxx
- /home/albert/Documents/ray/src/ui/debuggingWindow.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingView.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingWindow.cxx
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingWindow.h
 src/CMakeFiles/ray.dir/ui/glObjects.cpp.o
  ../third-party/glm/glm/common.hpp
  ../third-party/glm/glm/detail/_fixes.hpp
@@ -4137,18 +4137,18 @@ src/CMakeFiles/ray.dir/ui/glObjects.cpp.o
  ../third-party/glm/glm/vec3.hpp
  ../third-party/glm/glm/vec4.hpp
  ../third-party/glm/glm/vector_relational.hpp
- /home/albert/Documents/ray/src/SceneObjects/Box.h
- /home/albert/Documents/ray/src/SceneObjects/Cone.h
- /home/albert/Documents/ray/src/SceneObjects/Cylinder.h
- /home/albert/Documents/ray/src/SceneObjects/Sphere.h
- /home/albert/Documents/ray/src/SceneObjects/Square.h
- /home/albert/Documents/ray/src/SceneObjects/trimesh.h
- /home/albert/Documents/ray/src/scene/bbox.h
- /home/albert/Documents/ray/src/scene/camera.h
- /home/albert/Documents/ray/src/scene/kdTree.h
- /home/albert/Documents/ray/src/scene/light.h
- /home/albert/Documents/ray/src/scene/material.h
- /home/albert/Documents/ray/src/scene/ray.h
- /home/albert/Documents/ray/src/scene/scene.h
- /home/albert/Documents/ray/src/ui/TraceUI.h
- /home/albert/Documents/ray/src/ui/glObjects.cpp
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Box.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cone.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cylinder.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Sphere.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Square.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/trimesh.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/kdTree.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.h
+ /home/albert/Documents/GitHub/Graphics-raytracer/src/ui/glObjects.cpp

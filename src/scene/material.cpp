@@ -31,21 +31,22 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	// You will need to call both distanceAttenuation() and
 	// shadowAttenuation()
 	// somewhere in your code in order to compute shadows and light falloff.
-	//	if( debugMode )
-	//		std::cout << "Debugging Phong code..." << std::endl;
+	if( debugMode )
+		std::cout << "Debugging Phong code..." << std::endl;
 
 	// When you're iterating through the lights,
 	// you'll want to use code that looks something
 	// like this:
 	//
-	// for ( const auto& pLight : scene->getAllLights() )
-	// {
-	//              // pLight has type unique_ptr<Light>
-	// 		.
-	// 		.
-	// 		.
-	// }
-	return kd(i);
+
+	glm::dvec3 l = kd(i);
+	for ( const auto& pLight : scene->getAllLights() )
+	{
+		double da = pLight->distanceAttenuation(r.getPosition());
+		cout << da << "\n";
+		l *= da;
+	}
+	return l;
 }
 
 TextureMap::TextureMap(string filename)
