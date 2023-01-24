@@ -216,6 +216,7 @@ void RayTracer::traceImage(int w, int h)
 {
 	// Always call traceSetup before rendering anything.
 	traceSetup(w,h);
+	
 	for(int i = 0; i < h; i++){
 		for(int j = 0; j < w; j++){
 			tracePixel(j,i);
