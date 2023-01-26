@@ -39,12 +39,17 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	// like this:
 	//
 
-	glm::dvec3 l = kd(i);
+	glm::dvec3 l = glm::dvec3(0,0,0);
+	glm::dvec3 Q = r.at(i.getT());
+
 	for ( const auto& pLight : scene->getAllLights() )
 	{
-		double da = pLight->distanceAttenuation(r.getPosition());
-		cout << da << "\n";
-		l *= da;
+		l = pLight -> shadowAttenuation(r, Q);
+		// //if(pLight -> shadowAttenuation(r, Q, scene))
+		// double atten = pLight->distanceAttenuation(Q);
+		
+		// cout << atten << "\n";
+		// l = l + atten * (kd(i));
 	}
 	return l;
 }

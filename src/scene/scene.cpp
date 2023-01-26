@@ -25,7 +25,7 @@ bool Geometry::intersect(ray& r, isect& i) const {
 	r.setDirection(dir);
 	bool rtrn = false;
 	if (intersectLocal(r, i))
-	{
+	{ 
 		// Transform the intersection point & normal returned back into global space.
 		i.setN(transform->localToGlobalCoordsNormal(i.getN()));
 		i.setT(i.getT()/length);

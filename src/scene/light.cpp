@@ -11,6 +11,7 @@ using namespace std;
 double DirectionalLight::distanceAttenuation(const glm::dvec3& P) const
 {
 	// distance to light is infinite, so f(di) goes to 0.  Return 1.
+	cout << "directional light DA\n";
 	return 1.0;
 }
 
@@ -67,8 +68,18 @@ glm::dvec3 PointLight::shadowAttenuation(const ray& r, const glm::dvec3& p) cons
 {
 	// YOUR CODE HERE:
 	// You should implement shadow-handling code here.
-	glm::dvec3 d = getDirection(p);
 
+	//r = ray, p = intersection point
+	glm::dvec3 d = getDirection(p);
+	isect i;
+	ray r2(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
+	r2.setPosition(p);
+	r2.setDirection(d);
+
+	if(scene->intersect(r2, i)){
+		return glm::dvec3(0,0,0);
+	}
+	
 	return glm::dvec3(1,1,1);
 }
 
