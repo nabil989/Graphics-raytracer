@@ -44,9 +44,7 @@ double PointLight::distanceAttenuation(const glm::dvec3& P) const
 	// point P.  For now, we assume no attenuation and just return 1.0
 
 	//return min( 1, 1/( a + b d + c d^2 ) )
-	cout << "Point Light da" << "\n";
 	double d = glm::distance(P, position);
-	cout << "distance " << d << "\n"; 
 	//cout << constantTerm << " " <<  linearTerm << " " << quadraticTerm << "\n";
 	double val = constantTerm + linearTerm * d + quadraticTerm * d * d;
 	cout << val << "\n";

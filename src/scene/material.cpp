@@ -34,24 +34,38 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	if( debugMode )
 		std::cout << "Debugging Phong code..." << std::endl;
 
-	// When you're iterating through the lights,
-	// you'll want to use code that looks something
-	// like this:
-	//
-
-	glm::dvec3 l = glm::dvec3(0,0,0);
+	glm::dvec3 l = ka(i) * scene->ambient();
 	glm::dvec3 Q = r.at(i.getT());
-
+	glm::dvec3 N = i.getN();
 	for ( const auto& pLight : scene->getAllLights() )
 	{
-		l = pLight -> shadowAttenuation(r, Q);
+		//l = pLight -> shadowAttenuation(r, Q);
 		// //if(pLight -> shadowAttenuation(r, Q, scene))
-		// double atten = pLight->distanceAttenuation(Q);
+		glm::dvec3 d = pLight -> getDirection(Q);
+		isect i2;
+		ray r2(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
+		r2.setPosition(Q - 0.001*d);
+		r2.setDirection(d);
+
+		glm::dvec3 ln = kd(i) * abs(glm::dot(d, N));
+
+		// if(scene->intersect(r2, i2)){
+		// 	//need to check if intersection before light or behind light
+		// 	//double d1 = glm::distance(Q, r2.at(i2.getT()));
+		// 	//in shadow i guess
+		// 	return glm::dvec3(0,0,0);
+		// }
+		// glm::mat3 i3(1.0f);
+		// glm::mat3 matrix = i3 - glm::outerProduct(N, N);
+		// glm::dvec3 sp = ks(i) * max(glm::dot(r.getPosition(), )
+		// return kd(i);
+		double atten = pLight->distanceAttenuation(Q);
 		
-		// cout << atten << "\n";
-		// l = l + atten * (kd(i));
+		// // cout << atten << "\n";
+		l += atten * (kd(i));
+		cout << l;
 	}
-	return l;
+	return kd(i);
 }
 
 TextureMap::TextureMap(string filename)
