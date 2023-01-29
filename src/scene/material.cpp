@@ -37,6 +37,7 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	glm::dvec3 l = ka(i) * scene->ambient();
 	glm::dvec3 Q = r.at(i.getT());
 	glm::dvec3 N = i.getN();
+	glm::dvec3 V = r.getDirection();
 	for ( const auto& pLight : scene->getAllLights() )
 	{
 		//l = pLight -> shadowAttenuation(r, Q);
@@ -46,9 +47,13 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 		ray r2(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
 		r2.setPosition(Q - 0.001*d);
 		r2.setDirection(d);
+		glm::dvec3 ln = kd(i) * abs(glm::dot(d, N)) * pLight->distanceAttenuation(Q);
+		
+		glm::dvec3 R = 
 
-		glm::dvec3 ln = kd(i) * abs(glm::dot(d, N));
+		//glm::dvec3 ls = ks(i) * max
 
+		l += ln;
 		// if(scene->intersect(r2, i2)){
 		// 	//need to check if intersection before light or behind light
 		// 	//double d1 = glm::distance(Q, r2.at(i2.getT()));
@@ -56,16 +61,16 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 		// 	return glm::dvec3(0,0,0);
 		// }
 		// glm::mat3 i3(1.0f);
-		// glm::mat3 matrix = i3 - glm::outerProduct(N, N);
+		// glm::mat3 matrix = i3  glm::outerProduct(N, N);
 		// glm::dvec3 sp = ks(i) * max(glm::dot(r.getPosition(), )
 		// return kd(i);
-		double atten = pLight->distanceAttenuation(Q);
+		//double atten = pLight->distanceAttenuation(Q);
 		
 		// // cout << atten << "\n";
-		l += atten * (kd(i));
+		//l += atten * (kd(i));
 		cout << l;
 	}
-	return kd(i);
+	return l;
 }
 
 TextureMap::TextureMap(string filename)
