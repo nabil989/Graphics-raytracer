@@ -45,29 +45,32 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 
 		// light in, W_in vec.
 		glm::dvec3 d = pLight -> getDirection(Q);
-		isect i2;
-		ray r2(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
-		r2.setPosition(Q - 0.001*d);
-		r2.setDirection(d);
+		
 		double distAtten = pLight->distanceAttenuation(Q);
 
 		glm::dvec3 ln = kd(i) * abs(glm::dot(d, N)) * distAtten;
 		
-		// identity matrix
-		glm::mat3 i3(1.0f);
-		glm::mat3 matrix = glm::outerProduct(N, N);
-		glm::mat3 scaledMatrix = matrix * 2.0f;
-		glm::dvec3 reflectionRay = (i3 - scaledMatrix) * d;
-		glm::dvec3 specular = ks(i) * pow(max(glm::dot(r.getPosition(), reflectionRay), 0.0), shininess(i)) * distAtten;
-		//glm::dvec3 ls = ks(i) * max
-		l += specular;
-		l += ln;
+		// isect i2;
+		// ray r2(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
+		// r2.setPosition(Q);
+		// r2.setDirection(d);
 		// if(scene->intersect(r2, i2)){
 		// 	//need to check if intersection before light or behind light
 		// 	//double d1 = glm::distance(Q, r2.at(i2.getT()));
 		// 	//in shadow i guess
-		// 	return glm::dvec3(0,0,0);
+		// 	continue;
 		// }
+
+		// identity matrix
+
+		glm::dvec3 reflectionRay = glm::reflect(d, N) * -1.0;
+		glm::dvec3 specular = ks(i) * pow(max(glm::dot(r.getDirection() * -1.0, reflectionRay), 0.0), shininess(i)) * distAtten;
+		//glm::dvec3 ls = ks(i) * max
+
+		glm::dvec3 final = (specular + ln) * pLight -> shadowAttenuation(r, Q);
+
+		l += final;
+		
 		// glm::mat3 i3(1.0f);
 		// glm::mat3 matrix = i3  glm::outerProduct(N, N);
 		// glm::dvec3 sp = ks(i) * max(glm::dot(r.getPosition(), )

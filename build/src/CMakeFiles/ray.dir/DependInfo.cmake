@@ -1,45 +1,57 @@
-
-# Consider dependencies only in project.
-set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
-
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
+  )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/RayTracer.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/RayTracer.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Box.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cone.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Cylinder.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Sphere.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/Square.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/SceneObjects/trimesh.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/bitmap.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/fileio/bitmap.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/buffer.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/fileio/buffer.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/images.cc" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/fileio/images.cc.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/fileio/pngimage.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/fileio/pngimage.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/main.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/main.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Parser.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/parser/Parser.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/parser/ParserException.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/parser/ParserException.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Token.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/parser/Token.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/parser/Tokenizer.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/bbox.cc" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/scene/bbox.cc.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/camera.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/scene/camera.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/cubeMap.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/light.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/scene/light.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/material.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/scene/material.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/ray.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/scene/ray.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/scene/scene.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/scene/scene.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/CommandLineUI.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/CubeMapChooser.cxx" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/GraphicalUI.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/ModelerCamera.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceGLWindow.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/TraceUI.cc" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/ui/TraceUI.cc.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingView.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/debuggingWindow.cxx" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o"
+  "/home/albert/Documents/GitHub/Graphics-raytracer/src/ui/glObjects.cpp" "/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir/ui/glObjects.cpp.o"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "GLM_ENABLE_EXPERIMENTAL"
+  "GLM_FORCE_RADIANS=1"
+  "GLM_FORCE_SIZE_FUNC=1"
   )
 
-# The set of dependency files which are needed:
-set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/RayTracer.cpp" "src/CMakeFiles/ray.dir/RayTracer.cpp.o" "gcc" "src/CMakeFiles/ray.dir/RayTracer.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/SceneObjects/Box.cpp" "src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o" "gcc" "src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/SceneObjects/Cone.cpp" "src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o" "gcc" "src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/SceneObjects/Cylinder.cpp" "src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o" "gcc" "src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/SceneObjects/Sphere.cpp" "src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o" "gcc" "src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/SceneObjects/Square.cpp" "src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o" "gcc" "src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/SceneObjects/trimesh.cpp" "src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o" "gcc" "src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/fileio/bitmap.cpp" "src/CMakeFiles/ray.dir/fileio/bitmap.cpp.o" "gcc" "src/CMakeFiles/ray.dir/fileio/bitmap.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/fileio/buffer.cpp" "src/CMakeFiles/ray.dir/fileio/buffer.cpp.o" "gcc" "src/CMakeFiles/ray.dir/fileio/buffer.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/fileio/images.cc" "src/CMakeFiles/ray.dir/fileio/images.cc.o" "gcc" "src/CMakeFiles/ray.dir/fileio/images.cc.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/fileio/pngimage.cpp" "src/CMakeFiles/ray.dir/fileio/pngimage.cpp.o" "gcc" "src/CMakeFiles/ray.dir/fileio/pngimage.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/main.cpp" "src/CMakeFiles/ray.dir/main.cpp.o" "gcc" "src/CMakeFiles/ray.dir/main.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/parser/Parser.cpp" "src/CMakeFiles/ray.dir/parser/Parser.cpp.o" "gcc" "src/CMakeFiles/ray.dir/parser/Parser.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/parser/ParserException.cpp" "src/CMakeFiles/ray.dir/parser/ParserException.cpp.o" "gcc" "src/CMakeFiles/ray.dir/parser/ParserException.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/parser/Token.cpp" "src/CMakeFiles/ray.dir/parser/Token.cpp.o" "gcc" "src/CMakeFiles/ray.dir/parser/Token.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/parser/Tokenizer.cpp" "src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o" "gcc" "src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/scene/bbox.cc" "src/CMakeFiles/ray.dir/scene/bbox.cc.o" "gcc" "src/CMakeFiles/ray.dir/scene/bbox.cc.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/scene/camera.cpp" "src/CMakeFiles/ray.dir/scene/camera.cpp.o" "gcc" "src/CMakeFiles/ray.dir/scene/camera.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/scene/cubeMap.cpp" "src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o" "gcc" "src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/scene/light.cpp" "src/CMakeFiles/ray.dir/scene/light.cpp.o" "gcc" "src/CMakeFiles/ray.dir/scene/light.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/scene/material.cpp" "src/CMakeFiles/ray.dir/scene/material.cpp.o" "gcc" "src/CMakeFiles/ray.dir/scene/material.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/scene/ray.cpp" "src/CMakeFiles/ray.dir/scene/ray.cpp.o" "gcc" "src/CMakeFiles/ray.dir/scene/ray.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/scene/scene.cpp" "src/CMakeFiles/ray.dir/scene/scene.cpp.o" "gcc" "src/CMakeFiles/ray.dir/scene/scene.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/ui/CommandLineUI.cpp" "src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o" "gcc" "src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/ui/CubeMapChooser.cxx" "src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o" "gcc" "src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/ui/GraphicalUI.cpp" "src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o" "gcc" "src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/ui/ModelerCamera.cpp" "src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o" "gcc" "src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/ui/TraceGLWindow.cpp" "src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o" "gcc" "src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/ui/TraceUI.cc" "src/CMakeFiles/ray.dir/ui/TraceUI.cc.o" "gcc" "src/CMakeFiles/ray.dir/ui/TraceUI.cc.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/ui/debuggingView.cpp" "src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o" "gcc" "src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/ui/debuggingWindow.cxx" "src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o" "gcc" "src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o.d"
-  "/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/ui/glObjects.cpp" "src/CMakeFiles/ray.dir/ui/glObjects.cpp.o" "gcc" "src/CMakeFiles/ray.dir/ui/glObjects.cpp.o.d"
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/opt/local/include"
+  "../lib"
+  "/usr/lib/fltk"
+  "../third-party/glm"
   )
 
 # Targets to which this target links.

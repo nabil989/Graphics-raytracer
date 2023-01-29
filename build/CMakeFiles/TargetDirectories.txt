@@ -1,5 +1,5 @@
-/Users/nabil/dev/school/Graphics/Graphics-raytracer/build/CMakeFiles/edit_cache.dir
-/Users/nabil/dev/school/Graphics/Graphics-raytracer/build/CMakeFiles/rebuild_cache.dir
-/Users/nabil/dev/school/Graphics/Graphics-raytracer/build/src/CMakeFiles/ray.dir
-/Users/nabil/dev/school/Graphics/Graphics-raytracer/build/src/CMakeFiles/edit_cache.dir
-/Users/nabil/dev/school/Graphics/Graphics-raytracer/build/src/CMakeFiles/rebuild_cache.dir
+/home/albert/Documents/GitHub/Graphics-raytracer/build/CMakeFiles/rebuild_cache.dir
+/home/albert/Documents/GitHub/Graphics-raytracer/build/CMakeFiles/edit_cache.dir
+/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/rebuild_cache.dir
+/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/edit_cache.dir
+/home/albert/Documents/GitHub/Graphics-raytracer/build/src/CMakeFiles/ray.dir
