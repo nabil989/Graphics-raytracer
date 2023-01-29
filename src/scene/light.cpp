@@ -11,7 +11,7 @@ using namespace std;
 double DirectionalLight::distanceAttenuation(const glm::dvec3& P) const
 {
 	// distance to light is infinite, so f(di) goes to 0.  Return 1.
-	cout << "directional light DA\n";
+	// cout << "directional light DA\n";
 	return 1.0;
 }
 
@@ -47,7 +47,7 @@ double PointLight::distanceAttenuation(const glm::dvec3& P) const
 	double d = glm::distance(P, position);
 	//cout << constantTerm << " " <<  linearTerm << " " << quadraticTerm << "\n";
 	double val = constantTerm + linearTerm * d + quadraticTerm * d * d;
-	cout << val << "\n";
+	// cout << val << "\n";
 	return std::min(1.0,1/val);
 }
 
