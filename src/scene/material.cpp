@@ -56,7 +56,7 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 
 		glm::dvec3 final = (specular + ln) * pLight -> shadowAttenuation(r, Q);
 
-		l += final * pLight -> getColor();
+		l += final * pLight -> getColor() + ke(i);
 		
 	}
 
