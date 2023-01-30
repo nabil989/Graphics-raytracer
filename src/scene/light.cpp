@@ -18,9 +18,17 @@ double DirectionalLight::distanceAttenuation(const glm::dvec3& P) const
 
 glm::dvec3 DirectionalLight::shadowAttenuation(const ray& r, const glm::dvec3& p) const
 {
-	// YOUR CODE HERE:
-	// You should implement shadow-handling code here.
-	return glm::dvec3(1.0, 1.0, 1.0);
+	glm::dvec3 d = getDirection(p);
+	isect i;
+	ray r2(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
+	r2.setPosition(p + 0.001 * d);
+	r2.setDirection(d);
+
+	if(scene->intersect(r2, i)){
+		return glm::dvec3(0,0,0);
+	}
+
+	return glm::dvec3(1,1,1);
 }
 
 glm::dvec3 DirectionalLight::getColor() const

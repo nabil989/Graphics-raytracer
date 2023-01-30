@@ -73,6 +73,9 @@ glm::dvec3 RayTracer::tracePixel(int i, int j)
 // (or places called from here) to handle reflection, refraction, etc etc.
 glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, double& t )
 {
+	if(depth < 0){
+		return glm::dvec3(0,0,0);
+	}
 	isect i;
 	glm::dvec3 colorC;
 #if VERBOSE
@@ -93,6 +96,15 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 
 		const Material& m = i.getMaterial();
 		colorC = m.shade(scene.get(), r, i);
+		if(m.Refl()){
+			glm::dvec3 N = i.getN();
+			glm::dvec3 reflection = glm::reflect(r.getDirection(), N);
+			ray reflectedRay(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::REFLECTION);
+			reflectedRay.setPosition(r.at(i.getT()) + 0.001 * reflection);
+			reflectedRay.setDirection(reflection);
+			double dummy;
+			colorC += traceRay(reflectedRay, glm::dvec3(1.0,1.0,1.0), depth - 1, dummy);
+		}
 	} else {
 		// No intersection.  This ray travels to infinity, so we color
 		// it according to the background color, which in this (simple) case
