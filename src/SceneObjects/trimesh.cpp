@@ -122,6 +122,9 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
         return false;
     double t = glm::dot(edgeTwo, qvec) * inv_det;
 	i.setT(t);
+	i.setObject(parent);
+	i.setMaterial(parent->getMaterial());
+	i.setN(normal);
     return true;
 	// return false;
 }
