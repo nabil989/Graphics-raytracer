@@ -96,32 +96,32 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	// YOUR CODE HERE
 	//
 	// FIXME: Add ray-trimesh intersection
-	// glm::dvec3 a_coords = parent->vertices[ids[0]];
-    // glm::dvec3 b_coords = parent->vertices[ids[1]];
-    // glm::dvec3 c_coords = parent->vertices[ids[2]];
+	glm::dvec3 a_coords = parent->vertices[ids[0]];
+    glm::dvec3 b_coords = parent->vertices[ids[1]];
+    glm::dvec3 c_coords = parent->vertices[ids[2]];
 
-	// glm::dvec3 edgeOne = b_coords-a_coords;
-	// glm::dvec3 edgeTwo = c_coords-a_coords;
+	glm::dvec3 edgeOne = b_coords-a_coords;
+	glm::dvec3 edgeTwo = c_coords-a_coords;
 
-	// glm::dvec3 pvec = glm::cross(r.getDirection(), edgeTwo);
-	// float det = glm::dot(edgeOne, pvec);
+	glm::dvec3 pvec = glm::cross(r.getDirection(), edgeTwo);
+	float det = glm::dot(edgeOne, pvec);
 
-	// if(det < RAY_EPSILON && det > -RAY_EPSILON) {
-	// 	return false;
-	// }
+	if(det < RAY_EPSILON && det > -RAY_EPSILON) {
+		return false;
+	}
 
-	// float inv_det = 1 / det;
-	// glm::dvec3 tvec = r.getPosition() - a_coords;
+	float inv_det = 1 / det;
+	glm::dvec3 tvec = r.getPosition() - a_coords;
 
-	// float u = glm::dot(tvec, pvec) * inv_det;
-    // if (u < 0 || u > 1)
-    //     return false;
-    // glm::dvec3 qvec = glm::cross(tvec, edgeOne);
-    // double v = glm::dot(r.getDirection(), qvec) * inv_det;
-    // if (v < 0 || u + v > 1)
-    //     return false;
-    // double t = glm::dot(edgeTwo, qvec) * inv_det;
-	i.setT(1.0);
+	float u = glm::dot(tvec, pvec) * inv_det;
+    if (u < 0 || u > 1)
+        return false;
+    glm::dvec3 qvec = glm::cross(tvec, edgeOne);
+    double v = glm::dot(r.getDirection(), qvec) * inv_det;
+    if (v < 0 || u + v > 1)
+        return false;
+    double t = glm::dot(edgeTwo, qvec) * inv_det;
+	i.setT(t);
     return true;
 	// return false;
 }

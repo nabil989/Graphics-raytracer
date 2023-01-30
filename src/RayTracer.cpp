@@ -100,7 +100,7 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 			glm::dvec3 N = i.getN();
 			glm::dvec3 reflection = glm::reflect(r.getDirection(), N);
 			ray reflectedRay(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::REFLECTION);
-			reflectedRay.setPosition(r.at(i.getT()) + 0.001 * reflection);
+			reflectedRay.setPosition(r.at(i.getT()) + RAY_EPSILON * reflection);
 			reflectedRay.setDirection(reflection);
 			double dummy;
 			colorC += traceRay(reflectedRay, glm::dvec3(1.0,1.0,1.0), depth - 1, dummy);
