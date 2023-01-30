@@ -43,7 +43,7 @@ glm::dvec3 RayTracer::trace(double x, double y)
 
 	ray r(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
 	scene->getCamera().rayThrough(x,y,r);
-	double dummy;
+	double dummy = 0;
 	glm::dvec3 ret = traceRay(r, glm::dvec3(1.0,1.0,1.0), traceUI->getDepth(), dummy);
 	ret = glm::clamp(ret, 0.0, 1.0);
 	return ret;
@@ -104,6 +104,16 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 			reflectedRay.setDirection(reflection);
 			double dummy;
 			colorC += traceRay(reflectedRay, glm::dvec3(1.0,1.0,1.0), depth - 1, dummy);
+		}
+		if(m.Trans()) {
+			glm::dvec3 N = i.getN();
+			double indexOfRefraction = t == 0 ? m.index(i) : 1/m.index(i);
+			double dummy = t == 0 ? 1 : 0;
+			glm::dvec3 refraction = glm::refract(r.getDirection(), N, indexOfRefraction) * -1.0;
+			ray refractionRay(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::REFRACTION);
+			refractionRay.setPosition(r.at(i.getT()) + 0.001 * refraction);
+			refractionRay.setDirection(refraction);
+			colorC += traceRay(refractionRay, glm::dvec3(1.0,1.0,1.0), depth - 1, dummy);
 		}
 	} else {
 		// No intersection.  This ray travels to infinity, so we color
