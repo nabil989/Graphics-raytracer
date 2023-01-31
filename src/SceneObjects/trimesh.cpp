@@ -122,23 +122,28 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
     double t = glm::dot(edgeTwo, qvec) * inv_det;
 	i.setT(t);
 	i.setObject(parent);
-	i.setMaterial(parent->getMaterial());
 	glm::dvec2 uv(u, v);
 	i.setUVCoordinates(uv);
 	
-	if(parent->vertNorms){
-		glm::dvec3 centerOfMass = (1.0-u-v) * parent->normals[ids[0]] + parent->normals[ids[1]] * u + parent->normals[ids[2]] * v;
-		i.setN(centerOfMass);
-	}
-	else{
-		i.setN(normal);
-	}
-	double a = (1.0-u-v);
-	Material m = a * (*parent->materials[ids[0]]);
-	m+= u * (*parent->materials[ids[1]]);
-	m+=  v * (*parent->materials[ids[2]]);
-		
-
+	// if(parent->vertNorms){
+	// 	glm::dvec3 centerOfMass = (1.0-u-v) * parent->normals[ids[0]] + parent->normals[ids[1]] * u + parent->normals[ids[2]] * v;
+	// 	i.setN(centerOfMass);
+	// }
+	// else{
+	// 	i.setN(normal);
+	// }
+	i.setN(normal);
+	// if(parent->materials.size() > 0){
+	// 	double a = (1.0-u-v);
+	// 	Material m = a * (*parent->materials[ids[0]]);
+	// 	m+= u * (*parent->materials[ids[1]]);
+	// 	m+=  v * (*parent->materials[ids[2]]);
+	// 	i.setMaterial(m);
+	// }
+	// else{
+	// 	i.setMaterial(parent->getMaterial());
+	// }
+	i.setMaterial(parent->getMaterial());
 	return true;
 	// return false;
 }

@@ -125,12 +125,15 @@ glm::dvec3 PointLight::shadowAttenuation(const ray& r, const glm::dvec3& p) cons
 				}
 			}
 			else{
-				return glm::dvec3(0,0,0);
+				double distance = glm::distance(p, position);
+				double distanceIntersect = glm::distance(p, r2.at(i.getT()));
+				if(distanceIntersect < distance){
+					return glm::dvec3(0,0,0);
+				}
+				return max(glm::dvec3(0,0,0), ans);
 			}
 		}
-		else{
-			return max(glm::dvec3(0,0,0), ans);
-		}
+		return max(glm::dvec3(0,0,0), ans);
 	}
 	return ans;
 }
