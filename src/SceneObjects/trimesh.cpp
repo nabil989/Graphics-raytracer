@@ -99,21 +99,20 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	glm::dvec3 a_coords = parent->vertices[ids[0]];
     glm::dvec3 b_coords = parent->vertices[ids[1]];
     glm::dvec3 c_coords = parent->vertices[ids[2]];
-
 	glm::dvec3 edgeOne = b_coords-a_coords;
 	glm::dvec3 edgeTwo = c_coords-a_coords;
 
 	glm::dvec3 pvec = glm::cross(r.getDirection(), edgeTwo);
-	float det = glm::dot(edgeOne, pvec);
+	double det = glm::dot(edgeOne, pvec);
 
 	if(det < RAY_EPSILON && det > -RAY_EPSILON) {
 		return false;
 	}
 
-	float inv_det = 1 / det;
+	double inv_det = 1 / det;
 	glm::dvec3 tvec = r.getPosition() - a_coords;
 
-	float u = glm::dot(tvec, pvec) * inv_det;
+	double u = glm::dot(tvec, pvec) * inv_det;
     if (u < 0 || u > 1)
         return false;
     glm::dvec3 qvec = glm::cross(tvec, edgeOne);
@@ -124,8 +123,21 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	i.setT(t);
 	i.setObject(parent);
 	i.setMaterial(parent->getMaterial());
-	i.setN(normal);
-    return true;
+	glm::dvec2 uv(u, v);
+	i.setUVCoordinates(uv);
+	
+	if(parent->vertNorms){
+		glm::dvec3 centerOfMass = (1.0-u-v) * parent->normals[ids[0]] + parent->normals[ids[1]] * u + parent->normals[ids[2]] * v;
+		i.setN(centerOfMass);
+	}
+	else{
+		i.setN(normal);
+	}
+
+	//glm::dvec3 centerOfMass = (1.0-u-v) * parent->mat[ids[0]] + parent->normals[ids[1]] * u + parent->normals[ids[2]] * v;
+		
+
+	return true;
 	// return false;
 }
 
