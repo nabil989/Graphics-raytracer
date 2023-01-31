@@ -133,8 +133,10 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	else{
 		i.setN(normal);
 	}
-
-	//glm::dvec3 centerOfMass = (1.0-u-v) * parent->mat[ids[0]] + parent->normals[ids[1]] * u + parent->normals[ids[2]] * v;
+	double a = (1.0-u-v);
+	Material m = a * (*parent->materials[ids[0]]);
+	m+= u * (*parent->materials[ids[1]]);
+	m+=  v * (*parent->materials[ids[2]]);
 		
 
 	return true;
