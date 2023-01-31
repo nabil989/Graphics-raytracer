@@ -93,7 +93,6 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 		// Instead of just returning the result of shade(), add some
 		// more steps: add in the contributions from reflected and refracted
 		// rays.
-// eeeeeeeee
 
 		const Material& m = i.getMaterial();
 		colorC = m.shade(scene.get(), r, i);
@@ -111,12 +110,16 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 			double indexOfRefraction = air ? 1/m.index(i) : m.index(i);
 			double direction = air ? 1.0 : -1.0;
 			air = !air;
-			// cout << "index " << indexOfRefraction << "\n"; 
 			glm::dvec3 refraction = glm::refract(r.getDirection(), N * direction, indexOfRefraction);
-			ray refractionRay(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::REFRACTION);
-			refractionRay.setPosition(r.at(i.getT()) + RAY_EPSILON * refraction);
-			refractionRay.setDirection(refraction);   
-			colorC += traceRay(refractionRay, glm::dvec3(1.0,1.0,1.0), depth - 1, t, air);
+			if(refraction == glm::dvec3(0,0,0)){
+				colorC = glm::dvec3(0.0, 0.0, 0.0);
+			}
+			else{
+				ray refractionRay(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::REFRACTION);
+				refractionRay.setPosition(r.at(i.getT()) + RAY_EPSILON * refraction);
+				refractionRay.setDirection(refraction);
+				colorC += traceRay(refractionRay, glm::dvec3(1.0,1.0,1.0), depth - 1, t, air);	
+			}
 		}
 	} else {
 		// No intersection.  This ray travels to infinity, so we color

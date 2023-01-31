@@ -38,11 +38,9 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	glm::dvec3 Q = r.at(i.getT());
 	glm::dvec3 N = i.getN();
 	glm::dvec3 V = r.getDirection();
+	
 	for ( const auto& pLight : scene->getAllLights() )
 	{
-		//l = pLight -> shadowAttenuation(r, Q);
-		// //if(pLight -> shadowAttenuation(r, Q, scene))
-
 		// light in, W_in vec.
 		glm::dvec3 d = pLight -> getDirection(Q);
 		
@@ -60,9 +58,6 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 		
 	}
 
-	// if(r.REFLECTION){
-	// 	return l * kr(i);
-	// }
 	return l;
 }
 

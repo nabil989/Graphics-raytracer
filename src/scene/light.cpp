@@ -21,30 +21,39 @@ glm::dvec3 DirectionalLight::shadowAttenuation(const ray& r, const glm::dvec3& p
 	glm::dvec3 d = getDirection(p);
 	isect i;
 	ray r2(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::SHADOW);
-	r2.setPosition(p + 0.0001 * d);
 	r2.setDirection(d);
-
-	if(scene->intersect(r2, i)){
-		glm::dvec3 shadow(1,1,1);
-		const Material& m = i.getMaterial();
-		if(m.Trans()) {
-			ray r3(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::SHADOW);
-			r3.setPosition(r2.at(i.getT()) + 0.0001 * d);
-			r3.setDirection(d);
-			isect i2;
-			if(scene->intersect(r3, i2)){
-				glm::dvec3 exitPoint = r3.at(i2.getT());
-				shadow = glm::dvec3(1,1,1) - m.kt(i) * glm::distance(r2.at(i.getT()), exitPoint);
-				shadow *= shadowAttenuation(r3, exitPoint + 0.0001 * d);
+	r2.setPosition(p + RAY_EPSILON * d);
+	glm::dvec3 ans(1,1,1);
+	bool done = false;
+	while(!done){
+		isect i;
+		if(scene->intersect(r2, i)){
+			const Material& m = i.getMaterial();
+			if(m.Trans()) {
+				glm::dvec3 ipos = r2.at(i.getT());
+				ray dray(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::SHADOW);
+				dray.setDirection(d);
+				dray.setPosition(ipos + RAY_EPSILON * d);
+				isect i2;
+				if(scene->intersect(dray, i2)){
+					double d = glm::distance(dray.at(i2.getT()), ipos);
+					ans -= glm::dvec3(1) - glm::pow(m.kt(i) , glm::dvec3(d));
+					r2.setPosition(dray.at(i2.getT()) + RAY_EPSILON * d);
+				}
+				else{
+					return max(glm::dvec3(0,0,0), ans);
+				}
+			}
+			else{
+				return glm::dvec3(0,0,0);
 			}
 		}
 		else{
-			return glm::dvec3(0,0,0);
+			return max(glm::dvec3(0,0,0), ans);
 		}
-		return shadow;
 	}
-
-	return glm::dvec3(1,1,1);
+	return ans;
+	//return glm::dvec3(1,1,1);
 }
 
 glm::dvec3 DirectionalLight::getColor() const
@@ -91,34 +100,39 @@ glm::dvec3 PointLight::shadowAttenuation(const ray& r, const glm::dvec3& p) cons
 {
 	glm::dvec3 d = getDirection(p);
 	isect i;
-	ray r2(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
-	r2.setPosition(p + 0.0001 * d);
+	ray r2(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::SHADOW);
 	r2.setDirection(d);
-
-	if(scene->intersect(r2, i)){
-		glm::dvec3 shadow(1,1,1);
-		const Material& m = i.getMaterial();
-		cout << "shadow\n";
-		if(m.Trans()) {
-			cout << "reflected trans material\n";
-			ray r3(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
-			r3.setPosition(r2.at(i.getT()));
-			r3.setDirection(d);
-			isect i2;
-			if(scene->intersect(r3, i2)){
-				shadow *= m.kt(i) * glm::distance(r2.at(i.getT()), r3.at(i2.getT()));
-				shadow *= shadowAttenuation(r3, r3.at(i2.getT()));
+	r2.setPosition(p + RAY_EPSILON * d);
+	glm::dvec3 ans(1,1,1);
+	bool done = false;
+	while(!done){
+		isect i;
+		if(scene->intersect(r2, i)){
+			const Material& m = i.getMaterial();
+			if(m.Trans()) {
+				glm::dvec3 ipos = r2.at(i.getT());
+				ray dray(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::SHADOW);
+				dray.setDirection(d);
+				dray.setPosition(ipos + RAY_EPSILON * d);
+				isect i2;
+				if(scene->intersect(dray, i2)){
+					double d = glm::distance(dray.at(i2.getT()), ipos);
+					ans -= glm::dvec3(1) - glm::pow(m.kt(i) , glm::dvec3(d));
+					r2.setPosition(dray.at(i2.getT()) + RAY_EPSILON * d);
+				}
+				else{
+					return max(glm::dvec3(0,0,0), ans);
+				}
+			}
+			else{
+				return glm::dvec3(0,0,0);
 			}
 		}
-		double distance = glm::distance(p, position);
-		double distanceIntersect = glm::distance(p, r2.at(i.getT()));
-		if(distanceIntersect < distance){
-			return glm::dvec3(0,0,0);
+		else{
+			return max(glm::dvec3(0,0,0), ans);
 		}
-		return shadow;
 	}
-
-	return glm::dvec3(1,1,1);
+	return ans;
 }
 
 #define VERBOSE 0
