@@ -260,6 +260,7 @@ void RayTracer::traceImage(int w, int h)
 	//       while rendering.
 }
 
+
 int RayTracer::aaImage()
 {
 	// YOUR CODE HERE
@@ -267,6 +268,61 @@ int RayTracer::aaImage()
 	//
 	// TIP: samples and aaThresh have been synchronized with TraceUI by
 	//      RayTracer::traceSetup() function
+
+	std::vector<unsigned char> AAbuffer;
+	int AAbufferSize = buffer_width * samples * buffer_height * samples * 3;
+	AAbuffer.resize(AAbufferSize);
+	std::fill(AAbuffer.begin(), AAbuffer.end(), 0);
+
+	int w = buffer_width * samples;
+	int h = buffer_height * samples;
+
+	for(int j = 0; j < h; j++){
+		for(int i = 0; i < w; i++){
+			glm::dvec3 col(0,0,0);
+
+			double x = double(i)/double(w);
+			double y = double(j)/double(h);
+
+			unsigned char *pixel = AAbuffer.data() + ( i + j * w ) * 3;
+			col = trace(x, y);
+
+			pixel[0] = (int)( 255.0 * col[0]);
+			pixel[1] = (int)( 255.0 * col[1]);
+			pixel[2] = (int)( 255.0 * col[2]);
+			if(i == 236 && j == 273)
+				cout << col << "\n";
+		}
+	}
+
+	cout << "made AA buffer" << "\n";
+
+	//now for each pixel in buffer, take the samples^2 pixels and average
+
+	for(int j = 0; j < buffer_height; j++){
+		for(int i = 0; i < buffer_width; i++){
+			glm::dvec3 col(0,0,0);
+
+			int startr = j * samples;
+			int startc = i * samples;
+			for(int r = startr; r < startr + samples; r++){
+				for(int c = startc; c < startc + samples; c++){
+					unsigned char *pixel = AAbuffer.data() + ( c + r * w ) * 3;
+					glm::dvec3 temp(pixel[0], pixel[1], pixel[2]);
+					col += temp;
+				}
+			}
+			
+			double num = samples*samples;
+			col = col / glm::dvec3(num);
+			unsigned char *pixel = buffer.data() + ( i + j * buffer_width ) * 3;
+			pixel[0] = (int)(col[0]);
+			pixel[1] = (int)(col[1]);
+			pixel[2] = (int)(col[2]);
+		}
+	}
+
+	
 	return 0;
 }
 

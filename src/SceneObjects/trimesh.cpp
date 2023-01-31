@@ -4,6 +4,7 @@
 #include <string.h>
 #include <algorithm>
 #include <cmath>
+#include <iostream>
 #include "../ui/TraceUI.h"
 extern TraceUI* traceUI;
 
@@ -94,7 +95,7 @@ bool TrimeshFace::intersect(ray& r, isect& i) const
 bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 {
 	// YOUR CODE HERE
-	//
+
 	// FIXME: Add ray-trimesh intersection
 	glm::dvec3 a_coords = parent->vertices[ids[0]];
     glm::dvec3 b_coords = parent->vertices[ids[1]];
@@ -106,6 +107,7 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	double det = glm::dot(edgeOne, pvec);
 
 	if(det < RAY_EPSILON && det > -RAY_EPSILON) {
+		//cout << "no intersect" << "\n";
 		return false;
 	}
 
@@ -113,37 +115,40 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	glm::dvec3 tvec = r.getPosition() - a_coords;
 
 	double u = glm::dot(tvec, pvec) * inv_det;
-    if (u < 0 || u > 1)
-        return false;
+    if (u < 0 || u > 1){
+		//cout << "no intersect" << "\n";
+		return false;
+	} 
     glm::dvec3 qvec = glm::cross(tvec, edgeOne);
     double v = glm::dot(r.getDirection(), qvec) * inv_det;
-    if (v < 0 || u + v > 1)
-        return false;
+    if (v < 0 || u + v > 1){
+		//cout << "no intersect" << "\n";
+		return false;
+	}
     double t = glm::dot(edgeTwo, qvec) * inv_det;
 	i.setT(t);
 	i.setObject(parent);
 	glm::dvec2 uv(u, v);
 	i.setUVCoordinates(uv);
 	
-	// if(parent->vertNorms){
-	// 	glm::dvec3 centerOfMass = (1.0-u-v) * parent->normals[ids[0]] + parent->normals[ids[1]] * u + parent->normals[ids[2]] * v;
-	// 	i.setN(centerOfMass);
-	// }
-	// else{
-	// 	i.setN(normal);
-	// }
-	i.setN(normal);
-	// if(parent->materials.size() > 0){
-	// 	double a = (1.0-u-v);
-	// 	Material m = a * (*parent->materials[ids[0]]);
-	// 	m+= u * (*parent->materials[ids[1]]);
-	// 	m+=  v * (*parent->materials[ids[2]]);
-	// 	i.setMaterial(m);
-	// }
-	// else{
-	// 	i.setMaterial(parent->getMaterial());
-	// }
-	i.setMaterial(parent->getMaterial());
+	if(parent->vertNorms){
+		glm::dvec3 centerOfMass = (1.0-u-v) * parent->normals[ids[0]] + parent->normals[ids[1]] * u + parent->normals[ids[2]] * v;
+		i.setN(centerOfMass * 1.0);
+	}
+	else{
+		i.setN(normal * 1.0);
+	}
+	if(parent->materials.size() > 0){
+		double a = (1.0-u-v);
+		Material m = a * (*parent->materials[ids[0]]);
+		m+= u * (*parent->materials[ids[1]]);
+		m+=  v * (*parent->materials[ids[2]]);
+		i.setMaterial(m);
+	}
+	else{
+		i.setMaterial(parent->getMaterial());
+	}
+	//cout << "intersect" << "\n";
 	return true;
 	// return false;
 }
