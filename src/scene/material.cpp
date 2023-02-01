@@ -39,9 +39,10 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	glm::dvec3 N = i.getN();
 	glm::dvec3 V = r.getDirection();
 	
+	bool check = false;
 	for ( const auto& pLight : scene->getAllLights() )
 	{
-		// light in, W_in vec.
+		check = true;
 		glm::dvec3 d = pLight -> getDirection(Q);
 		
 		double distAtten = pLight->distanceAttenuation(Q);
@@ -50,14 +51,13 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 
 		glm::dvec3 reflectionRay = glm::reflect(d, N) * -1.0;
 		glm::dvec3 specular = ks(i) * pow(max(glm::dot(r.getDirection() * -1.0, reflectionRay), 0.0), shininess(i)) * distAtten;
-		//glm::dvec3 ls = ks(i) * max
-
 		glm::dvec3 final = (specular + ln) * pLight -> shadowAttenuation(r, Q);
 
 		l += final * pLight -> getColor() + ke(i);
-		
 	}
-
+	if(!check){
+		l += ke(i);
+	}
 	return l;
 }
 
