@@ -111,7 +111,7 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 		return false;
 	}
 
-	double inv_det = 1 / det;
+	double inv_det = 1.0 / det;
 	glm::dvec3 tvec = r.getPosition() - a_coords;
 
 	double u = glm::dot(tvec, pvec) * inv_det;
@@ -126,6 +126,10 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 		return false;
 	}
     double t = glm::dot(edgeTwo, qvec) * inv_det;
+	if(t < RAY_EPSILON){
+		return false;
+	}
+	
 	i.setT(t);
 	i.setObject(parent);
 	glm::dvec2 uv(u, v);
