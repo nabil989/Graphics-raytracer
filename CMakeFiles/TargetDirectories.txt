@@ -1,0 +1,5 @@
+/Users/nabil/dev/school/Graphics/Graphics-raytracer/CMakeFiles/edit_cache.dir
+/Users/nabil/dev/school/Graphics/Graphics-raytracer/CMakeFiles/rebuild_cache.dir
+/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/CMakeFiles/ray.dir
+/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/CMakeFiles/edit_cache.dir
+/Users/nabil/dev/school/Graphics/Graphics-raytracer/src/CMakeFiles/rebuild_cache.dir

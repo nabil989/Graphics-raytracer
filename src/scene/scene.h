@@ -265,6 +265,11 @@ public:
 
 	const BoundingBox& bounds() const { return sceneBounds; }
 
+	void setBVH(bvhNode* node) {
+		root = node;
+	}
+
+
 
 private:
 	std::vector<std::unique_ptr<Geometry>> objects;
