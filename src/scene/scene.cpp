@@ -116,6 +116,7 @@ bool Scene::intersect(ray& r, isect& i) const {
 	double tmin = 0.0;
 	double tmax = 0.0;
 	bool have_one = false;
+	//TODO: instead of looping through objects, traverse bvh
 	for(const auto& obj : objects) {
 		isect cur;
 		if( obj->intersect(r, cur) ) {

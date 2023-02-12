@@ -69,6 +69,7 @@ const char* Trimesh::doubleCheck()
 
 bool Trimesh::intersectLocal(ray& r, isect& i) const
 {
+	//TODO: instead of looping through faces, traverse bvh to find the face
 	bool have_one = false;
 	for (auto face : faces) {
 		isect cur;

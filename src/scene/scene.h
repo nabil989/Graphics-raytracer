@@ -27,6 +27,7 @@
 #include <glm/matrix.hpp>
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
+#include "bvh.h"
 
 using std::unique_ptr;
 
@@ -284,6 +285,8 @@ private:
 	// are exempt from this requirement.
 	BoundingBox sceneBounds;
 
+	struct bvhNode * root;
+	
 	KdTree<Geometry>* kdtree;
 
 	mutable std::mutex intersectionCacheMutex;
