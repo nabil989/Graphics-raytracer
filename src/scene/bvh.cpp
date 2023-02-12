@@ -2,16 +2,16 @@
 
 bvhNode * createBVH(std::vector<std::unique_ptr<Geometry>> objects)
 {   
-    
-    if(objects.size() == 0) {
-        return nullptr;
-    }
     bvhNode * current;
     BoundingBox* box;
+    if(objects.size() == 0) {
+        current -> leaf = true;
+        return current;
+    }
     if(objects.size() == 1){
         current->leaf = true;
-        box->merge(objects[0]->getBoundingBox());
         current -> box = box;
+        current -> objects = objects;
         return current;
     }
     for(int i = 0; i < objects.size(); i++){

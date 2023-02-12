@@ -102,6 +102,7 @@ void Scene::add(Geometry* obj) {
 	obj->ComputeBoundingBox();
 	sceneBounds.merge(obj->getBoundingBox());
 	objects.emplace_back(obj);
+	setBVH(createBVH(objects));
 }
 
 void Scene::add(Light* light)
@@ -116,9 +117,45 @@ bool Scene::intersect(ray& r, isect& i) const {
 	double tmin = 0.0;
 	double tmax = 0.0;
 	bool have_one = false;
-	//TODO: instead of looping through objects, traverse bvh
-	setBVH(createBVH(objects));
+	bvhNode * cur = root;
+	double tm = 0.0;
+	double tma = 0.0;
 
+	while(!cur->leaf){
+		double tmin = 0.0;
+		double tmax = 0.0;
+		double lt = -1.0;
+		double rt = -1.0;
+		if(cur->left->box->intersect(r, tmin, tmax)){
+			lt = tmin;
+		}
+		if(cur->right->box->intersect(r, tmin, tmax)){
+			rt = tmin;
+		}
+		if(lt == -1.0 && rt == -1.0){
+			break;
+		}
+		else if(lt == -1.0 || rt == -1.0){
+			if(lt > rt){
+				cur = cur -> left;
+			}
+			else{
+				cur = cur->right;
+			}
+		}
+		else{
+			if(lt < rt){
+				cur = cur -> left;
+			}
+			else{
+				cur = cur->right;
+			}
+		}
+	}
+
+	isect c;
+	cur->objects[0]->intersect(r,c);
+	have_one = true;
 
 	// for(const auto& obj : objects) {
 	// 	isect cur;
@@ -130,8 +167,6 @@ bool Scene::intersect(ray& r, isect& i) const {
 	// 		}
 	// 	}
 	// }
-
-
 
 	if(!have_one)
 		i.setT(1000.0);
