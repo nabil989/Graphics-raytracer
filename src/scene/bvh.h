@@ -3,7 +3,10 @@
 
 #include "bbox.h"
 #include <vector>
+
+#include <memory>
 using std::unique_ptr;
+using std::shared_ptr;
 #include "camera.h"
 #include "material.h"
 #include "ray.h"
@@ -27,10 +30,10 @@ struct bvhNode {
     bool leaf;
     struct bvhNode * left;
     struct bvhNode * right;
-    std::vector<std::unique_ptr<Geometry>> objects;
+    std::vector<std::shared_ptr<Geometry>> objects;
 };
 
-bvhNode* createBVH(std::vector<std::unique_ptr<Geometry>> objects);
+bvhNode* createBVH(std::vector<std::shared_ptr<Geometry>> objects);
 
 // class bvhTree {
 //     public:

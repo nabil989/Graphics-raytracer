@@ -1,6 +1,6 @@
 #include "bvh.h"
 
-bvhNode * createBVH(std::vector<std::unique_ptr<Geometry>> objects)
+bvhNode * createBVH(std::vector<std::shared_ptr<Geometry>> objects)
 {   
     bvhNode * current;
     BoundingBox* box;
@@ -33,14 +33,14 @@ bvhNode * createBVH(std::vector<std::unique_ptr<Geometry>> objects)
     }
 
     double mid = (bottomright[longest] - topleft[longest]) / 2;
-    std::vector<std::unique_ptr<Geometry>> objLeft;
-    std::vector<std::unique_ptr<Geometry>> objRight;
+    std::vector<std::shared_ptr<Geometry>> objLeft;
+    std::vector<std::shared_ptr<Geometry>> objRight;
 
     for(int i = 0; i < objects.size(); i++){
         if(objects[i]->getBoundingBox().getMax()[longest] > mid) {
-            objRight.push_back(objects[i]);
+            objRight.emplace_back(objects[i]);
         } else {
-            objLeft.push_back(objects[i]);
+            objLeft.emplace_back(objects[i]);
         }
     }
 

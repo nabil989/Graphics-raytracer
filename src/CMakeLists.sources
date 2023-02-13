@@ -60,4 +60,6 @@
 ./scene/scene.h
 ./scene/ray.cpp
 ./scene/scene.cpp
+./scene/bvh.h
+./scene/bvh.cpp
 ./scene/cubeMap.h

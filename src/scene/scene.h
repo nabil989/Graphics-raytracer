@@ -27,7 +27,8 @@
 #include <glm/matrix.hpp>
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
-#include "bvh.h"
+
+struct bvhNode;
 
 using std::unique_ptr;
 
@@ -272,7 +273,7 @@ public:
 
 
 private:
-	std::vector<std::unique_ptr<Geometry>> objects;
+	std::vector<std::shared_ptr<Geometry>> objects;
 	std::vector<std::unique_ptr<Light>> lights;
 	Camera camera;
 

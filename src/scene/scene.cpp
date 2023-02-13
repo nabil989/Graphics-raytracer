@@ -8,6 +8,8 @@
 #include <iostream>
 #include <glm/gtx/io.hpp>
 
+#include "bvh.h"
+
 using namespace std;
 
 bool Geometry::intersect(ray& r, isect& i) const {
@@ -102,7 +104,7 @@ void Scene::add(Geometry* obj) {
 	obj->ComputeBoundingBox();
 	sceneBounds.merge(obj->getBoundingBox());
 	objects.emplace_back(obj);
-	setBVH(createBVH(objects));
+	root = createBVH(objects);
 }
 
 void Scene::add(Light* light)
@@ -114,59 +116,62 @@ void Scene::add(Light* light)
 // Get any intersection with an object.  Return information about the 
 // intersection through the reference parameter.
 bool Scene::intersect(ray& r, isect& i) const {
-	double tmin = 0.0;
-	double tmax = 0.0;
 	bool have_one = false;
-	bvhNode * cur = root;
-	double tm = 0.0;
-	double tma = 0.0;
+	// double tmin = 0.0;
+	// double tmax = 0.0;
+	
+	// bvhNode * cur = root;
+	// double tm = 0.0;
+	// double tma = 0.0;
 
-	while(!cur->leaf){
-		double tmin = 0.0;
-		double tmax = 0.0;
-		double lt = -1.0;
-		double rt = -1.0;
-		if(cur->left->box->intersect(r, tmin, tmax)){
-			lt = tmin;
-		}
-		if(cur->right->box->intersect(r, tmin, tmax)){
-			rt = tmin;
-		}
-		if(lt == -1.0 && rt == -1.0){
-			break;
-		}
-		else if(lt == -1.0 || rt == -1.0){
-			if(lt > rt){
-				cur = cur -> left;
-			}
-			else{
-				cur = cur->right;
-			}
-		}
-		else{
-			if(lt < rt){
-				cur = cur -> left;
-			}
-			else{
-				cur = cur->right;
-			}
-		}
-	}
-
-	isect c;
-	cur->objects[0]->intersect(r,c);
-	have_one = true;
-
-	// for(const auto& obj : objects) {
-	// 	isect cur;
-	// 	if( obj->intersect(r, cur) ) {
-
-	// 		if(!have_one || (cur.getT() < i.getT())) {
-	// 			i = cur;
-	// 			have_one = true;
+	// while(!cur->leaf){
+	// 	double tmin = 0.0;
+	// 	double tmax = 0.0;
+	// 	double lt = -1.0;
+	// 	double rt = -1.0;
+	// 	if(cur->left->box->intersect(r, tmin, tmax)){
+	// 		lt = tmin;
+	// 	}
+	// 	if(cur->right->box->intersect(r, tmin, tmax)){
+	// 		rt = tmin;
+	// 	}
+	// 	if(lt == -1.0 && rt == -1.0){
+	// 		break;
+	// 	}
+	// 	else if(lt == -1.0 || rt == -1.0){
+	// 		if(lt > rt){
+	// 			cur = cur -> left;
+	// 		}
+	// 		else{
+	// 			cur = cur->right;
+	// 		}
+	// 	}
+	// 	else{
+	// 		if(lt < rt){
+	// 			cur = cur -> left;
+	// 		}
+	// 		else{
+	// 			cur = cur->right;
 	// 		}
 	// 	}
 	// }
+
+	// isect c;
+	// if(cur->objects[0]->intersect(r,c)){
+	// 	have_one = true;
+	// }
+	
+
+	for(const auto& obj : objects) {
+		isect cur;
+		if( obj->intersect(r, cur) ) {
+
+			if(!have_one || (cur.getT() < i.getT())) {
+				i = cur;
+				have_one = true;
+			}
+		}
+	}
 
 	if(!have_one)
 		i.setT(1000.0);
