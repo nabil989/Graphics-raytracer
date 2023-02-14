@@ -1,19 +1,28 @@
 #include "bvh.h"
 
+bool compare(std::shared_ptr<Geometry> o, std::shared_ptr<Geometry> o1, int axis){
+    return o->getBoundingBox().getMax()[axis] < o1->getBoundingBox().getMax()[axis];
+}
+
+
 bvhNode * createBVH(std::vector<std::shared_ptr<Geometry>> objects)
 {   
-    bvhNode * current;
-    BoundingBox* box;
+    bvhNode * current = new bvhNode;
+    BoundingBox* box = new BoundingBox();
     if(objects.size() == 0) {
         current -> leaf = true;
         return current;
     }
     if(objects.size() == 1){
-        current->leaf = true;
+        current -> leaf = true;
+        box -> merge(objects[0]->getBoundingBox());
         current -> box = box;
-        current -> objects = objects;
+        std::vector<std::shared_ptr<Geometry>> obj;
+        obj.push_back(objects[0]);
+        current -> objects = obj;
         return current;
     }
+
     for(int i = 0; i < objects.size(); i++){
         box->merge(objects[i]->getBoundingBox());
     }
@@ -36,6 +45,8 @@ bvhNode * createBVH(std::vector<std::shared_ptr<Geometry>> objects)
     std::vector<std::shared_ptr<Geometry>> objLeft;
     std::vector<std::shared_ptr<Geometry>> objRight;
 
+    sort(objects.begin(), objects.end(), compare);
+
     for(int i = 0; i < objects.size(); i++){
         if(objects[i]->getBoundingBox().getMax()[longest] > mid) {
             objRight.emplace_back(objects[i]);
@@ -44,9 +55,18 @@ bvhNode * createBVH(std::vector<std::shared_ptr<Geometry>> objects)
         }
     }
 
+    if(objRight.size() == 0){
+        objRight.emplace_back(objLeft.back());
+        objLeft.pop_back();
+
+    }
+    else if(objLeft.size() == 0){
+        objLeft.emplace_back(objRight[0]);
+        objRight.erase(objRight.begin());
+    }
+
     //split objects into 2 parts
     current -> left = createBVH (objLeft);
     current -> right = createBVH(objRight);
     return current;
-    
 }
