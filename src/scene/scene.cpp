@@ -117,57 +117,50 @@ void Scene::add(Light* light)
 // intersection through the reference parameter.
 bool Scene::intersect(ray& r, isect& i) const {
 	bool have_one = false;
-	// double tmin = 0.0;
-	// double tmax = 0.0;
+	double tmin = 0.0;
+	double tmax = 0.0;
 	
-	// bvhNode * cur = root;
-	// double tm = 0.0;
-	// double tma = 0.0;
+	bvhNode * cur = root;
+	double tm = 0.0;
+	double tma = 0.0;
 
-	// while(!cur->leaf){
-	// 	double tmin = 0.0;
-	// 	double tmax = 0.0;
-	// 	double lt = -1.0;
-	// 	double rt = -1.0;
-	// 	if(cur->left->box->intersect(r, tmin, tmax)){
-	// 		lt = tmin;
-	// 	}
-	// 	if(cur->right->box->intersect(r, tmin, tmax)){
-	// 		rt = tmin;
-	// 	}
-	// 	if(lt == -1.0 && rt == -1.0){
-	// 		break;
-	// 	}
-	// 	else if(lt == -1.0 || rt == -1.0){
-	// 		if(lt > rt){
-	// 			cur = cur -> left;
-	// 		}
-	// 		else{
-	// 			cur = cur->right;
-	// 		}
-	// 	}
-	// 	else{
-	// 		if(lt < rt){
-	// 			cur = cur -> left;
-	// 		}
-	// 		else{
-	// 			cur = cur->right;
-	// 		}
-	// 	}
-	// }
+	while(!cur->leaf){
+		double tmin = 0.0;
+		double tmax = 0.0;
+		double lt = -1.0;
+		double rt = -1.0;
+		if(cur->left->box->intersect(r, tmin, tmax)){
+			lt = tmin;
+		}
+		if(cur->right->box->intersect(r, tmin, tmax)){
+			rt = tmin;
+		}
+		if(lt == -1.0 && rt == -1.0){
+			break;
+		}
+		else if(lt == -1.0 || rt == -1.0){
+			if(lt > rt){
+				cur = cur -> left;
+			}
+			else{
+				cur = cur->right;
+			}
+		}
+		else{
+			if(lt < rt){
+				cur = cur -> left;
+			}
+			else{
+				cur = cur->right;
+			}
+		}
+	}
 
-	// isect c;
-	// if(cur->objects[0]->intersect(r,c)){
-	// 	have_one = true;
-	// }
-	
-
-	for(const auto& obj : objects) {
-		isect cur;
-		if( obj->intersect(r, cur) ) {
-
-			if(!have_one || (cur.getT() < i.getT())) {
-				i = cur;
+	for(const auto& obj : cur->objects) {
+		isect c;
+		if( obj->intersect(r, c) ) {
+			if(!have_one || (c.getT() < i.getT())) {
+				i = c;
 				have_one = true;
 			}
 		}

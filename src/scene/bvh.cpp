@@ -45,7 +45,7 @@ bvhNode * createBVH(std::vector<std::shared_ptr<Geometry>> objects)
     std::vector<std::shared_ptr<Geometry>> objLeft;
     std::vector<std::shared_ptr<Geometry>> objRight;
 
-    sort(objects.begin(), objects.end(), compare);
+   // sort(objects.begin(), objects.end(), compare);
 
     for(int i = 0; i < objects.size(); i++){
         if(objects[i]->getBoundingBox().getMax()[longest] > mid) {
@@ -56,13 +56,14 @@ bvhNode * createBVH(std::vector<std::shared_ptr<Geometry>> objects)
     }
 
     if(objRight.size() == 0){
-        objRight.emplace_back(objLeft.back());
-        objLeft.pop_back();
-
+        current -> leaf = true;
+        current ->objects = objRight;
+        return current;
     }
     else if(objLeft.size() == 0){
-        objLeft.emplace_back(objRight[0]);
-        objRight.erase(objRight.begin());
+        current -> leaf = true;
+        current ->objects = objLeft;
+        return current;
     }
 
     //split objects into 2 parts
