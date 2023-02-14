@@ -200,6 +200,8 @@ bool RayTracer::loadScene(const char* fn)
 
 	if (!sceneLoaded())
 		return false;
+	
+	scene->genBvh();
 
 	return true;
 }

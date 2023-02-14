@@ -104,7 +104,7 @@ void Scene::add(Geometry* obj) {
 	obj->ComputeBoundingBox();
 	sceneBounds.merge(obj->getBoundingBox());
 	objects.emplace_back(obj);
-	root = createBVH(objects);
+	
 }
 
 void Scene::add(Light* light)
@@ -112,19 +112,46 @@ void Scene::add(Light* light)
 	lights.emplace_back(light);
 }
 
+void printTree(bvhNode * cur, int level){
+	for(int i = 0; i < level; i++){
+		cout << "----";
+	}
+	if(cur -> leaf){
+		cout << "level " << level << "leaf, size " << cur->objects.size() << "\n";
+		return;
+	}
+	cout << "level " << level << "inner" << "\n";
+	printTree(cur -> left, level + 1);
+	printTree(cur -> right, level + 1);
+}
+
+void Scene::genBvh(){
+	root = createBVH(objects);
+	printTree(root, 0);
+}
+
 
 // Get any intersection with an object.  Return information about the 
 // intersection through the reference parameter.
-bool Scene::intersect(ray& r, isect& i) const {
-	bool have_one = false;
-	double tmin = 0.0;
-	double tmax = 0.0;
-	
-	bvhNode * cur = root;
-	double tm = 0.0;
-	double tma = 0.0;
-
-	while(!cur->leaf){
+isect recurse(ray&r, bvhNode * cur){
+	isect i = isect();
+	i.setT(1000.0);
+	if(cur -> leaf){
+		bool have_one;
+		for(const auto& obj : cur->objects) {
+			isect c;
+			if( obj->intersect(r, c) ) {
+				if(!have_one || (c.getT() < i.getT())) {
+					i = c;
+					have_one = true;
+				}
+			}
+		}
+		if(!have_one)
+			i.setT(1000.0);
+		return i;
+	}
+	else{
 		double tmin = 0.0;
 		double tmax = 0.0;
 		double lt = -1.0;
@@ -136,44 +163,41 @@ bool Scene::intersect(ray& r, isect& i) const {
 			rt = tmin;
 		}
 		if(lt == -1.0 && rt == -1.0){
-			break;
+			i.setT(1000.0);
+			return i;
 		}
 		else if(lt == -1.0 || rt == -1.0){
 			if(lt > rt){
-				cur = cur -> left;
+				i = recurse(r, cur->left);
 			}
 			else{
-				cur = cur->right;
+				i = recurse(r, cur->right);
 			}
 		}
 		else{
-			if(lt < rt){
-				cur = cur -> left;
+			isect i1 = recurse(r,cur->left);
+			isect i2 = recurse(r, cur->right);
+			if(i1.getT() < i2.getT()){
+				return i1;
 			}
-			else{
-				cur = cur->right;
-			}
+			return i2;
 		}
 	}
+	return i;
+}
 
-	for(const auto& obj : cur->objects) {
-		isect c;
-		if( obj->intersect(r, c) ) {
-			if(!have_one || (c.getT() < i.getT())) {
-				i = c;
-				have_one = true;
-			}
-		}
-	}
 
-	if(!have_one)
-		i.setT(1000.0);
-	// if debugging,
+bool Scene::intersect(ray& r, isect& i) const {
+
+	
+
+	i = recurse(r, root);
+	cout << i.getT() << " ";
 	if (TraceUI::m_debug)
 	{
 		addToIntersectCache(std::make_pair(new ray(r), new isect(i)));
 	}
-	return have_one;
+	return i.getT() < 1000.0;
 }
 
 TextureMap* Scene::getTexture(string name) {

@@ -47,7 +47,7 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 		
 		double distAtten = pLight->distanceAttenuation(Q);
 
-		glm::dvec3 ln = kd(i) * abs(glm::dot(d, N)) * distAtten;
+		glm::dvec3 ln = kd(i) * glm::abs(glm::dot(d, N)) * distAtten;
 
 		glm::dvec3 reflectionRay = glm::reflect(d, N) * -1.0;
 		glm::dvec3 specular = ks(i) * pow(max(glm::dot(r.getDirection() * -1.0, reflectionRay), 0.0), shininess(i)) * distAtten;
