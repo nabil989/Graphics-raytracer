@@ -51,7 +51,7 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 
 		glm::dvec3 reflectionRay = glm::reflect(d, N) * -1.0;
 		glm::dvec3 specular = ks(i) * pow(max(glm::dot(r.getDirection() * -1.0, reflectionRay), 0.0), shininess(i)) * distAtten;
-		glm::dvec3 final = (specular + ln) * pLight -> shadowAttenuation(r, Q);
+		glm::dvec3 final = (specular + ln); //* pLight -> shadowAttenuation(r, Q);
 
 		l += final * pLight -> getColor() + ke(i);
 	}

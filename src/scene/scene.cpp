@@ -137,6 +137,7 @@ isect recurse(ray&r, bvhNode * cur){
 	isect i = isect();
 	i.setT(1000.0);
 	if(cur -> leaf){
+		//cout << "in leaf, leafsize" << cur->objects.size() << "\n";
 		bool have_one;
 		for(const auto& obj : cur->objects) {
 			isect c;
@@ -147,8 +148,14 @@ isect recurse(ray&r, bvhNode * cur){
 				}
 			}
 		}
-		if(!have_one)
+		if(!have_one){
 			i.setT(1000.0);
+			//cout << "leaf no intesec" << "\n";
+		}
+		// else{
+		// 	cout << "leaf yes intersec" << "\n";
+		// }
+			
 		return i;
 	}
 	else{
@@ -157,9 +164,11 @@ isect recurse(ray&r, bvhNode * cur){
 		double lt = -1.0;
 		double rt = -1.0;
 		if(cur->left->box->intersect(r, tmin, tmax)){
+			//cout << "left box intersect " << lt << "\n";
 			lt = tmin;
 		}
 		if(cur->right->box->intersect(r, tmin, tmax)){
+			//cout << "right box intersect " << rt << "\n";
 			rt = tmin;
 		}
 		if(lt == -1.0 && rt == -1.0){
@@ -192,7 +201,8 @@ bool Scene::intersect(ray& r, isect& i) const {
 	
 
 	i = recurse(r, root);
-	cout << i.getT() << " ";
+	//cout << i.getT() << " ";
+
 	if (TraceUI::m_debug)
 	{
 		addToIntersectCache(std::make_pair(new ray(r), new isect(i)));

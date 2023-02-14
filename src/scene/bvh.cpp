@@ -65,9 +65,10 @@ bvhNode * createBVH(std::vector<std::shared_ptr<Geometry>> objects)
     if(longest == 2){
         sort(objects.begin(), objects.end(), comparez);
     }
+    
     double mid = (bottomright[longest] - topleft[longest]) / 2;
     std::shared_ptr<Geometry> medianObj = objects[objects.size()/2];
-    //double median = getMid(medianObj, longest);
+    double median = getMid(medianObj, longest);
     std::vector<std::shared_ptr<Geometry>> objLeft;
     std::vector<std::shared_ptr<Geometry>> objRight;
 
@@ -75,7 +76,8 @@ bvhNode * createBVH(std::vector<std::shared_ptr<Geometry>> objects)
 
     for(int i = 0; i < objects.size(); i++){
         double objectMid = getMid(objects[i], longest);
-        if(objects[i]->getBoundingBox().getMax()[longest] > mid) {
+        //objects[i]->getBoundingBox().getMax()[longest]
+        if(objectMid > median) {
             objRight.emplace_back(objects[i]);
         } else {
             objLeft.emplace_back(objects[i]);
