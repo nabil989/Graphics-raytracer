@@ -1,0 +1,31 @@
+SBT-raytracer 1.0
+
+camera {
+position = (0, 0, -5)
+viewdir = (0, 0, 1)
+aspectratio = 1
+updir = (0, 1, 0)
+}
+
+point_light {
+position = (0, 10, -10)
+color = (1, 1, 1)
+}
+
+plane {
+material {
+diffuse = (0.2, 0.8, 0.2)
+specular = (0.2, 0.2, 0.2)
+reflective = (0.8, 0.8, 0.8)
+}
+}
+
+sphere {
+center = (0, 0, 0)
+radius = 1
+material {
+diffuse = (0.2, 0.2, 0.2)
+specular = (0.8, 0.8, 0.8)
+reflective = (1, 1, 1)
+}
+}
