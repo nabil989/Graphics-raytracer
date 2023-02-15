@@ -11,7 +11,7 @@ extern TraceUI* traceUI;
 using namespace std;
 extern bool debugMode;
 
-const bool proceduralTextures = true;
+const bool proceduralTextures = false;
 
 /*
 	texture options
