@@ -11,6 +11,7 @@ using std::shared_ptr;
 #include "material.h"
 #include "ray.h"
 #include "scene.h"
+#include "../SceneObjects/trimesh.h"
 
 #include <algorithm>
 #include <map>
@@ -33,7 +34,17 @@ struct bvhNode {
     std::vector<std::shared_ptr<Geometry>> objects;
 };
 
+struct bvhNodeTrimesh {
+    BoundingBox * box;
+    bool leaf;
+    struct bvhNodeTrimesh * left;
+    struct bvhNodeTrimesh * right;
+    std::vector<TrimeshFace *> faces;
+};
+
 bvhNode* createBVH(std::vector<std::shared_ptr<Geometry>> objects);
+
+bvhNodeTrimesh * createBVHTrimesh(std::vector<TrimeshFace *> objects);
 
 // class bvhTree {
 //     public:

@@ -15,6 +15,8 @@
 
 class TrimeshFace;
 
+struct bvhNodeTrimesh;
+
 class Trimesh : public MaterialSceneObject {
 	friend class TrimeshFace;
 	typedef std::vector<glm::dvec3> Normals;
@@ -49,6 +51,7 @@ public:
 	void addMaterial(Material *m);
 	void addNormal(const glm::dvec3 &);
 	bool addFace(int a, int b, int c);
+	void generateTree();
 
 	const char *doubleCheck();
 
@@ -74,6 +77,9 @@ public:
 		localBounds = localbounds;
 		return localbounds;
 	}
+private:
+	bvhNodeTrimesh * root;
+	
 
 protected:
 	void glDrawLocal(int quality, bool actualMaterials,
@@ -147,6 +153,8 @@ public:
 		                            localbounds.getMin()));
 		return localbounds;
 	}
+
+	glm::dvec3 centrioid();
 
 	const BoundingBox &getBoundingBox() const { return localbounds; }
 };

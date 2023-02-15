@@ -679,12 +679,14 @@ void Parser::parseTrimesh(Scene* scene, TransformNode* transform, const Material
 
         if( generateNormals )
           tmesh->generateNormals();
-
+        tmesh->generateTree();
 
         if ((error = tmesh->doubleCheck()))
           throw ParserException(error);
 
+        
         scene->add( tmesh );
+        
         return;
       }
 

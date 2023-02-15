@@ -104,7 +104,6 @@ void Scene::add(Geometry* obj) {
 	obj->ComputeBoundingBox();
 	sceneBounds.merge(obj->getBoundingBox());
 	objects.emplace_back(obj);
-	
 }
 
 void Scene::add(Light* light)
@@ -197,9 +196,6 @@ isect recurse(ray&r, bvhNode * cur){
 
 
 bool Scene::intersect(ray& r, isect& i) const {
-
-	
-
 	i = recurse(r, root);
 	//cout << i.getT() << " ";
 

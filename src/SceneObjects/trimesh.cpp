@@ -6,6 +6,8 @@
 #include <cmath>
 #include <iostream>
 #include "../ui/TraceUI.h"
+#include "../scene/bvh.h"
+
 extern TraceUI* traceUI;
 
 using namespace std;
@@ -52,6 +54,7 @@ bool Trimesh::addFace(int a, int b, int c)
 
 	// Don't add faces to the scene's object list so we can cull by bounding
 	// box
+	//root = createBVHTrimesh(faces);
 	return true;
 }
 
@@ -67,22 +70,119 @@ const char* Trimesh::doubleCheck()
 	return 0;
 }
 
+void printTree(bvhNodeTrimesh * cur, int level, int &leaf, int & leafsum, int &leafmax, int&maxlevel){
+	maxlevel = max(level, maxlevel);
+	for(int i = 0; i < level; i++){
+		cout << "----";
+	}
+	if(cur -> leaf){
+		cout << "level " << level << "leaf, size " << cur->faces.size() << "\n";
+		leaf++;
+		leafsum += cur -> faces.size();
+		int temp = cur ->faces.size();
+		leafmax = glm::max(leafmax,temp);
+		return;
+	}
+	cout << "level " << level << "inner" << "\n";
+	printTree(cur -> left, level + 1, leaf, leafsum, leafmax, maxlevel);
+	printTree(cur -> right, level + 1, leaf, leafsum, leafmax, maxlevel);
+}
+
+void Trimesh::generateTree(){
+	root = createBVHTrimesh(faces);
+	int l = 0;
+	int ls = 0;
+	int lm = 0;
+	int ml = 0;
+	printTree(root, 0, l, ls, lm, ml);
+	cout << l << " " << ls << " " << lm << " " << ml << "\n";
+}
+
+void recurse(ray&r, bvhNodeTrimesh * cur, isect & i, int& count){
+	if(cur -> leaf){
+		//cout << "in leaf, leafsize" << cur->faces.size() << "\n";
+		bool have_one;
+		for(auto face: cur->faces) {
+			isect c;
+			count++;
+			if( face->intersectLocal(r, c) ) {
+				if(!have_one || (c.getT() < i.getT())) {
+					i = c;
+					have_one = true;
+				}
+			}
+		}
+		if(!have_one){
+			i.setT(1000.0);
+			//cout << "leaf no intesec" << "\n";
+		}
+	}
+	else{
+		double tmin = 0.0;
+		double tmax = 0.0;
+		double lt = -1.0;
+		double rt = -1.0;
+		if(cur->left->box->intersect(r, tmin, tmax)){
+			//cout << "left box intersect " << lt << "\n";
+			lt = tmin;
+		}
+		if(cur->right->box->intersect(r, tmin, tmax)){
+			//cout << "right box intersect " << rt << "\n";
+			rt = tmin;
+		}
+		if(lt == -1.0 && rt == -1.0){
+			return;
+		}
+		else if(lt == -1.0 || rt == -1.0){
+			//cout << "one edge";
+			if(lt > rt){
+				recurse(r, cur->left, i, count);
+			}
+			else{
+				recurse(r, cur->right, i, count);
+			}
+		}
+		else{
+			recurse(r,cur->left, i, count);
+			recurse(r, cur->right, i, count);
+		}
+	}
+}
+
 bool Trimesh::intersectLocal(ray& r, isect& i) const
 {
 	//TODO: instead of looping through faces, traverse bvh to find the face
-	bool have_one = false;
-	for (auto face : faces) {
-		isect cur;
-		if (face->intersectLocal(r, cur)) {
-			if (!have_one || (cur.getT() < i.getT())) {
-				i = cur;
-				have_one = true;
-			}
-		}
-	}
-	if (!have_one)
-		i.setT(1000.0);
-	return have_one;
+	isect n = isect();
+	n.setT(1000.0);
+	i.setT(1000.0);
+	int count = 0;
+	recurse(r, root, i, count);
+	//cout << count << "\n";
+	//cout << i.getT() << " ";
+	return i.getT() < 1000.0;
+
+	// bool have_one = false;
+	// for (auto face : faces) {
+	// 	count --;
+	// 	isect cur;
+	// 	if (face->intersectLocal(r, cur)) {
+	// 		if (!have_one || (cur.getT() < i.getT())) {
+	// 			i = cur;
+	// 			have_one = true;
+	// 		}
+	// 	}
+	// }
+	// cout << count << "\n";
+	// if (!have_one)
+	// 	i.setT(1000.0);
+	// return have_one;
+}
+
+glm::dvec3 TrimeshFace::centrioid(){
+	glm::dvec3 a_coords = parent->vertices[ids[0]];
+    glm::dvec3 b_coords = parent->vertices[ids[1]];
+    glm::dvec3 c_coords = parent->vertices[ids[2]];
+	return (a_coords + b_coords + c_coords)/3.0;
 }
 
 bool TrimeshFace::intersect(ray& r, isect& i) const
@@ -181,5 +281,6 @@ void Trimesh::generateNormals()
 	}
 
 	vertNorms = true;
+
 }
 
