@@ -11,6 +11,20 @@ extern TraceUI* traceUI;
 using namespace std;
 extern bool debugMode;
 
+const bool proceduralTextures = true;
+
+/*
+	texture options
+	0 : checkerboard
+	1 : wood
+	2 : coral/wavy
+*/
+const int textureSelection = 2;
+
+//change to generate different textures
+const int noiseOffset = 10;
+
+
 Material::~Material()
 {
 }
@@ -111,21 +125,104 @@ glm::dvec3 TextureMap::getMappedValue(const glm::dvec2& coord) const
 	return (1 - t) * c1 + t * c2;
 }
 
+//generate a seeded value betwene 0 and 1 || very bad code
+double gradient(int x, int y){
+	double seed = M_PI;
+	double seed2 = M_LOG2E;
+	//idk this makes something kinda random hopefully
+	double num = (x *x * seed + y * y *seed2 + seed)*10000 + 1.0/noiseOffset;
+	//cout << "gradient" << " " << x << " " << y << " "<< num - glm::floor(num) << "\n";
+	return num - glm::floor(num);
+}
+
+double interpolate(double lo, double hi, double t){
+	// double ft = d * M_PI;
+	// double f = (1- glm::cos(ft) * 0.5);
+	// return a * (1-f) + b * f;
+	//cout << "int " << lo << " " << hi << " " << t << " " << lo * (1-t) + hi * t << "\n";   
+	return lo + t * (hi - lo);
+}
+
+double fade(double t){
+	//perlin noise optimized ease function
+	return ((6 * t - 15) * t + 10) * t * t * t;
+}
+
+double noise(double x, double y){
+	//calculate gradient but needs to be larger steps?
+	x/=30;
+	y/=30;
+	int x0 = floor(x);
+	int y0 = floor(y);
+	x0 %= 1000;
+	y0 %= 1000;
+	int x1 = x0 + 1;
+	int y1 = y0 + 1;
+
+	//cout << "grid cell" << x0 << " " << y0 << " " << x1 << " " << y1 << "\n";
+
+	double dx = 1- (x - x0);
+	double dy = y - y0;
+	//get the four corners
+	double br = gradient(x0, y0);
+	double tr = gradient(x0, y1);
+	double bl = gradient(x1, y0);
+	double tl = gradient(x1, y1);
+
+	//interpolation
+	double u = fade(dx);
+	double v = fade(dy);
+	double ix = interpolate(bl, tl, v);
+	double ix1 = interpolate(br, tr, v);
+	double ans = interpolate(ix, ix1, u);
+	
+	return ans;
+}
+
+
+
 glm::dvec3 TextureMap::getPixelAt(int x, int y) const
 {
 	// YOUR CODE HERE
 	//
 	// In order to add texture mapping support to the
 	// raytracer, you need to implement this function.
+	glm::dvec3 col(0,0,0);
 
-	int start = ( x + y * width ) * 3;
-    glm::dvec3 col(0,0,0);
-
-    for(int i = 0; i < 3; i++){
-        col[i] = data[start + i] / 255.0;
-    }
-
-    return col;
+	if(proceduralTextures){
+		int scale = 50;
+		col = {1,1,1};
+		if(textureSelection == 0){
+			double multx = (glm::sin(x * scale) + 1) * 0.5;
+			double multy = (glm::sin(y * scale) + 1) * 0.5;
+			double mult = 1;
+			if(multx < 0.5 && multy < 0.5 || multx > 0.5 && multy > 0.5){
+				mult = 0;
+			}
+			col *= mult;
+		}
+		if(textureSelection == 1){
+			col = {255.0, 177.0, 128.0};
+			col/= 255.0;
+			double val = noise(x * 0.7,y *0.7) * 9;
+			col *= val - (int) val;
+			//(sin(x*y + (noise(x*2, y*2)*20) + noise(x*3, x*3) * 10)+1) * 0.5;
+		}
+		if(textureSelection == 2){
+			col = {252.0, 173.0, 173.0};
+			col/= 255.0;
+			col *= (sin((x + noise(x,y) * 50) * 2 * M_PI/10.0) + 1) / 2.0;
+		}
+	}
+	else{
+		int start = ( x + y * width ) * 3;
+		
+		for(int i = 0; i < 3; i++){
+			col[i] = data[start + i] / 255.0;
+		}
+	}
+	
+	return col;
 }
 
 glm::dvec3 MaterialParameter::value(const isect& is) const
