@@ -11,19 +11,29 @@ extern TraceUI* traceUI;
 using namespace std;
 extern bool debugMode;
 
-const bool proceduralTextures = false;
+/********************************/
+// PROCEDURAL TEXTURES OPTIONS //
 
+const bool proceduralTextures = false;
 /*
 	texture options
 	0 : checkerboard
 	1 : wood
 	2 : coral/wavy
 */
-const int textureSelection = 2;
+const int textureSelection = 0;
 
 //change to generate different textures
 const int noiseOffset = 10;
 
+
+
+/************************/
+// CEL SHADING OPTIONS //
+const bool CELshading = false;
+
+int numShadingBands = 6;
+double ShadingBands[6] = {0.05, 0.15, 0.4, 0.6, 0.85, 1.0};
 
 Material::~Material()
 {
@@ -57,17 +67,52 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	for ( const auto& pLight : scene->getAllLights() )
 	{
 		check = true;
-		glm::dvec3 d = pLight -> getDirection(Q);
+		if(!CELshading){
+			glm::dvec3 d = pLight -> getDirection(Q);
 		
-		double distAtten = pLight->distanceAttenuation(Q);
+			double distAtten = pLight->distanceAttenuation(Q);
 
-		glm::dvec3 ln = kd(i) * glm::abs(glm::dot(d, N)) * distAtten;
+			glm::dvec3 ln = kd(i) * glm::abs(glm::dot(d, N)) * distAtten;
 
-		glm::dvec3 reflectionRay = glm::reflect(d, N) * -1.0;
-		glm::dvec3 specular = ks(i) * pow(max(glm::dot(r.getDirection() * -1.0, reflectionRay), 0.0), shininess(i)) * distAtten;
-		glm::dvec3 final = (specular + ln) * pLight -> shadowAttenuation(r, Q);
+			glm::dvec3 reflectionRay = glm::reflect(d, N) * -1.0;
+			glm::dvec3 specular = ks(i) * pow(max(glm::dot(r.getDirection() * -1.0, reflectionRay), 0.0), shininess(i)) * distAtten;
+			glm::dvec3 final = (specular + ln) * pLight -> shadowAttenuation(r, Q);
 
-		l += final * pLight -> getColor() + ke(i);
+			l += final * pLight -> getColor() + ke(i);
+		}
+		else{
+			glm::dvec3 d = pLight -> getDirection(Q);
+			
+			//diffuse component
+			double distAtten = pLight->distanceAttenuation(Q);
+			double angle = glm::abs(glm::dot(d, N)) * distAtten;
+			
+			int diffuseBand = (int) (angle * numShadingBands);
+			if(diffuseBand >= numShadingBands){
+				diffuseBand = numShadingBands - 1;
+			}
+			glm ::dvec3 diffuse = kd(i) * ShadingBands[diffuseBand];
+
+			//specular component
+			glm::dvec3 reflectionRay = glm::reflect(d, N) * -1.0;
+			double specularV = pow(max(glm::dot(r.getDirection() * -1.0, reflectionRay), 0.0), shininess(i)) * distAtten;
+			int SPband = (int) (specularV * numShadingBands);
+			if(SPband >= numShadingBands){
+				SPband = numShadingBands - 1;
+			}
+			glm::dvec3 specular = ks(i) * ShadingBands[SPband];
+			
+			double rim = glm::abs(glm::dot(N, scene->getCamera().getLook()));
+			//cout << "rim " << rim << "\n";
+			glm::dvec3 rimValue= {0,0,0};
+			if(rim <= 0.2){
+				rimValue =  kd(i);
+			}
+			glm::dvec3 final = (diffuse + specular + rimValue) * pLight -> shadowAttenuation(r, Q);
+			l += final;
+			
+		}
+		
 	}
 	if(!check){
 		l += ke(i);
